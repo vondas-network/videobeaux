@@ -49,7 +49,28 @@ Define the parameters of the command using inline parameters.
 python videobeaux.py resize-video --input_video input_file.mp4 --output_video resized.mp4 --height 400 --width 300
 ```
 
+## Help
+Learn more about a program using the *help* command
 
+### Usage
+
+```
+python videobeaux.py convert-video --help 
+```
+
+### Response
+
+```  bash
+Usage: videobeaux.py convert-video [OPTIONS]
+
+  Convert a video to a different format.
+
+Options:
+  --input-file TEXT   Input video file
+  --output-file TEXT  Output video file
+  --format TEXT       Format of the output video
+  --help              Show this message and exit.
+```
 
 
 

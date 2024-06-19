@@ -1,0 +1,24 @@
+resize:
+  input_file: ''
+  output_file: "output_resized_again.mp4"
+  width: 1200
+  height: 200
+
+convert:
+  input_file: "input.mp4"
+  output_file: "output.avi"
+  format: "avi"
+
+extract_frames:
+  input_file: "input.mp4"
+  output_folder: "frames"
+  frame_rate: 24
+
+silence_x:
+  min_d: 0
+  max_d: 1000
+  adj: 0
+  input_file:  ''
+  output_file: "silencex"
+
+

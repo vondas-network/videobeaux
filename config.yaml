@@ -1,5 +1,5 @@
 resize:
-  input_file: ''
+  input_file: 'input.mp4'
   output_file: "output_resized_again.mp4"
   width: 1200
   height: 200
@@ -8,6 +8,24 @@ convert:
   input_file: "input.mp4"
   output_file: "output.avi"
   format: "avi"
+
+extract_sound:
+  input_file: "input.mp4"
+  output_file: "output.wav"
+
+reverse:
+  input_file: "input.mp4"
+  output_file: "output.mp4"
+
+stack_2x:
+  input_file1: "input.mp4"
+  input_file2: "input.mp4"
+  output_file: "output.mp4"
+
+lsd_feedback:
+  input_file: "input.mp4"
+  input_weights: 1 1 -3 2 1 1 -3 1
+  output_file: "output.mp4"
 
 extract_frames:
   input_file: "input.mp4"

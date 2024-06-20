@@ -2,7 +2,7 @@ import typer
 import yaml
 from pathlib import Path
 
-from programs import silence_extraction, resize, convert, extract_frames
+from programs import silence_extraction, resize, convert, extract_frames, sound, reverse, stack_2x, lsd_feedback
 
 config_file = Path(__file__).parent / "config.yaml"
 
@@ -73,6 +73,79 @@ def convert_video(
         format = config['convert']['format']
 
     convert.convert_video(input_file, output_file, format)
+
+@app.command()
+def extract_sound(
+    input_file: str = typer.Option(None, help="Input video file"),
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Extract audio from video file.
+    """
+    if not input_file:
+        input_file = config['extract_sound']['input_file']
+    if not output_file:
+        output_file = config['extract_sound']['output_file']
+
+    sound.extract_sound(input_file, output_file)
+
+@app.command()
+def reverse_video(
+    input_file: str = typer.Option(None, help="Input video file"),
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Reverse video file.
+    """
+    if not input_file:
+        input_file = config['reverse']['input_file']
+    if not output_file:
+        output_file = config['reverse']['output_file']
+
+    reverse.reverse_video(input_file, output_file)
+
+
+@app.command()
+def stack_2x_video(
+    input_file1: str = typer.Option(None, help="Input video file 1"),
+    input_file2: str = typer.Option(None, help="Input video file 2"),
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Reverse video file.
+    """
+    if not input_file1:
+        input_file1= config['stack_2x']['input_file1']
+    if not input_file2:
+        input_file2 = config['stack_2x']['input_file2']
+    if not output_file:
+        output_file = config['stack_2x']['output_file']
+
+    stack_2x.stack_2x_video(input_file1, input_file2, output_file)
+
+@app.command()
+def lsd_feedback_video(
+    input_file: str = typer.Option(None, help="Input video file "),
+    input_weights: str = typer.Option(None, help="Input weights"),
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Reverse video file.
+    """
+    if not input_file:
+        input_file= config['lsd_feedback']['input_file']
+    if not input_weights:
+        input_weights= config['lsd_feedback']['input_weights']
+    if not output_file:
+        output_file = config['lsd_feedback']['output_file']
+
+    lsd_feedback.lsd_feedback_video(input_file, input_weights, output_file)
+
+
 
 @app.command()
 def extract_frames(

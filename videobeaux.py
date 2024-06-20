@@ -2,7 +2,7 @@ import typer
 import yaml
 from pathlib import Path
 
-from programs import silence_extraction, resize, convert, extract_frames, sound, reverse, stack_2x, lsd_feedback, frame_lag
+from programs import silence_extraction, resize, convert, extract_frames, sound, reverse, stack_2x, lsd_feedback, frame_delay_pro1, frame_delay_pro2, mirror_delay, blur_pix, overexposed_stutter, scrolling, scrolling_pro, nostalgic_stutter, stutter_pro
 
 config_file = Path(__file__).parent / "config.yaml"
 
@@ -14,6 +14,7 @@ config = load_config()
 
 app = typer.Typer()
 
+# V1
 @app.command()
 def silence_xtraction(
     min_d: int = typer.Option(None, help="Width of the output video"),
@@ -75,9 +76,28 @@ def convert_video(
     convert.convert_video(input_file, output_file, format)
 
 @app.command()
+def extract_frames(
+    input_file: str = typer.Option(None, help="Input video file"),
+    output_folder: str = typer.Option(None, help="Output folder for frames"),
+    frame_rate: int = typer.Option(None, help="Frame rate for extracting frames")
+):
+    """
+    Extract frames from a video at the specified frame rate.
+    """
+    if not input_file:
+        input_file = config['extract_frames']['input_file']
+    if not output_folder:
+        output_folder = config['extract_frames']['output_folder']
+    if not frame_rate:
+        frame_rate = config['extract_frames']['frame_rate']
+
+    extract_frames.extract_frames(input_file, output_folder, frame_rate)
+
+# V2
+@app.command()
 def extract_sound(
     input_file: str = typer.Option(None, help="Input video file"),
-    output_file: str = typer.Option(None, help="Output video file")
+    output_file: str = typer.Option(None, help="Output audio file")
 ):
 
     """
@@ -115,7 +135,7 @@ def stack_2x_video(
 ):
 
     """
-    Reverse video file.
+    Stack 2 videos on top of each other keeping the original orientation.
     """
     if not input_file1:
         input_file1= config['stack_2x']['input_file1']
@@ -133,7 +153,7 @@ def lsd_feedback_video(
 ):
 
     """
-    Reverse video file.
+    Apply LSD feedback effect to video file.
     """
     if not input_file:
         input_file= config['lsd_feedback']['input_file']
@@ -143,7 +163,23 @@ def lsd_feedback_video(
     lsd_feedback.lsd_feedback_video(input_file, output_file)
 
 @app.command()
-def frame_lag_video(
+def nostalgic_stutter_video(
+    input_file: str = typer.Option(None, help="Input video file"),
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Apply nostaglic stutter effect to video file.
+    """
+    if not input_file:
+        input_file= config['lsd_feedback']['input_file']
+    if not output_file:
+        output_file = config['lsd_feedback']['output_file']
+
+    nostalgic_stutter.nostalgic_stutter_video(input_file, output_file)
+
+@app.command()
+def frame_delay_pro1_video(
     input_file: str = typer.Option(None, help="Input video file "),
     num_of_frames: int = typer.Option(None, help="Input weight for frame delay"),    
     frame_weights: str = typer.Option(None, help="Input weight for frame delay"),    
@@ -151,36 +187,148 @@ def frame_lag_video(
 ):
 
     """
-    Reverse video file.
+    Apply the pro1 frame delay to video file.
+    """
+    if not input_file:
+        input_file= config['frame_delay_pro1']['input_file']
+    if not num_of_frames: 
+        num_of_frames= config['frame_delay_pro1']['num_of_frames']
+    if not frame_weights: 
+        frame_weights= config['frame_delay_pro1']['frame_weights']
+    if not output_file:
+        output_file = config['frame_delay_pro1']['output_file']
+
+    frame_delay_pro1.frame_delay_pro1_video(input_file, num_of_frames, frame_weights, output_file)
+
+@app.command()
+def frame_delay_pro2_video(
+    input_file: str = typer.Option(None, help="Input video file "),
+    decay: int = typer.Option(None, help=""),    
+    planes: str = typer.Option(None, help="Input weight for frame delay"),    
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Apply the pro2 frame delay to video file.
+    """
+    if not input_file:
+        input_file= config['frame_delay_pro2']['input_file']
+    if not decay: 
+        decay= config['frame_delay_pro2']['decay']
+    if not planes: 
+        planes= config['frame_delay_pro2']['planes']
+    if not output_file:
+        output_file = config['frame_delay_pro2']['output_file']
+
+    frame_delay_pro2.frame_delay_pro2_video(input_file, decay, planes, output_file)
+
+
+@app.command()
+def mirror_delay_video(
+    input_file: str = typer.Option(None, help="Input video file"), 
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Apply mirrored delay effect to video file.
     """
     if not input_file:
         input_file= config['frame_lag']['input_file']
-    if not num_of_frames: 
-        num_of_frames= config['frame_lag']['num_of_frames']
-    if not frame_weights: 
-        frame_weights= config['frame_lag']['frame_weights']
     if not output_file:
         output_file = config['frame_lag']['output_file']
 
-    frame_lag.frame_lag_video(input_file, num_of_frames, frame_weights, output_file)
+    mirror_delay.mirror_delay_video(input_file, output_file)
 
 @app.command()
-def extract_frames(
-    input_file: str = typer.Option(None, help="Input video file"),
-    output_folder: str = typer.Option(None, help="Output folder for frames"),
-    frame_rate: int = typer.Option(None, help="Frame rate for extracting frames")
+def overexposed_stutter_video(
+    input_file: str = typer.Option(None, help="Input video file"), 
+    output_file: str = typer.Option(None, help="Output video file")
 ):
+
     """
-    Extract frames from a video at the specified frame rate.
+    Apply overexposed stutter effect to video file.
     """
     if not input_file:
-        input_file = config['extract_frames']['input_file']
-    if not output_folder:
-        output_folder = config['extract_frames']['output_folder']
-    if not frame_rate:
-        frame_rate = config['extract_frames']['frame_rate']
+        input_file= config['overexposed_stutter']['input_file']
+    if not output_file:
+        output_file = config['overexposed_stutter']['output_file']
 
-    extract_frames.extract_frames(input_file, output_folder, frame_rate)
+    overexposed_stutter.overexposed_stutter_video(input_file, output_file)
+
+@app.command()
+def stutter_pro_video(
+    input_file: str = typer.Option(None, help="Input video file"), 
+    stutter: str = typer.Option(None, help="Frame stutter parameter"), 
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Apply stutter pro effect to video file.
+    """
+    if not input_file:
+        input_file= config['stutter_pro']['input_file']
+    if not stutter:
+        stutter= config['stutter_pro']['stutter']
+    if not output_file:
+        output_file = config['stutter_pro']['output_file']
+
+    stutter_pro.stutter_pro_video(input_file, stutter, output_file)
+
+
+@app.command()
+def scrolling_video(
+    input_file: str = typer.Option(None, help="Input video file"), 
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Apply scrolling effect to video file.
+    """
+    if not input_file:
+        input_file= config['scrolling']['input_file']
+    if not output_file:
+        output_file = config['scrolling']['output_file']
+
+    scrolling.scrolling_video(input_file, output_file)
+
+@app.command()
+def scrolling_pro_video(
+    input_file: str = typer.Option(None, help="Input video file"), 
+    horizontal: str = typer.Option(None, help="Horizontal scroll parameter"), 
+    vertical: str = typer.Option(None, help="Vertical scroll parameter"), 
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Apply scrolling pro effect to video file.
+    """
+    if not input_file:
+        input_file= config['scrolling_pro']['input_file']
+    if not horizontal:
+        horizontal= config['scrolling_pro']['horizontal']
+    if not vertical:
+        vertical= config['scrolling_pro']['vertical']
+    if not output_file:
+        output_file = config['scrolling_pro']['output_file']
+
+    scrolling_pro.scrolling_pro_video(input_file, horizontal, vertical, output_file)
+
+
+@app.command()
+def blur_pix_video(
+    input_file: str = typer.Option(None, help="Input video file"), 
+    output_file: str = typer.Option(None, help="Output video file")
+):
+
+    """
+    Apply blur pix effect to video file.
+    """
+    if not input_file:
+        input_file= config['blur_pix']['input_file']
+    if not output_file:
+        output_file = config['blur_pix']['output_file']
+
+    blur_pix.blur_pix_video(input_file, output_file)
 
 if __name__ == "__main__":
     app()

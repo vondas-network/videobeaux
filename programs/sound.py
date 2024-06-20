@@ -11,4 +11,4 @@ def extract_sound(input_file, output_file):
         output_file
     ]
     run_ffmpeg_command(command)
-    print(f"Audio extracted {format} format and saved as {output_file} from {input_file}")
+    print(f"Audio extracted from video using sound and file is {output_file}")

@@ -18,5 +18,4 @@ def stack_2x_video(input_file1, input_file2, output_file):
         output_file
     ]
     run_ffmpeg_command(command)
-    print(f"Video reversed and saved as {output_file} from {input_file1} and {input_file2}")
-
+    print(f"Video processed with stack_2x and file is {output_file}")

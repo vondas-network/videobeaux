@@ -1,11 +1,11 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def lsd_feedback_video(input_file, output_file):
+def frame_lag_video(input_file, num_of_frames, frame_weights, output_file):
     command = [
         "ffmpeg",
         "-y",
         "-i", input_file,
-        "-vf", "tmix=frames=8:weights=1 1 -3 2 1 1 -3 1",
+        "-vf", f"tmix=frames={num_of_frames}:weights='{frame_weights}'",
         "-c:v", "libx264",
         "-crf", "23",
         "-preset", "fast",

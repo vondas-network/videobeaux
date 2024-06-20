@@ -24,7 +24,13 @@ stack_2x:
 
 lsd_feedback:
   input_file: "input.mp4"
-  input_weights: 1 1 -3 2 1 1 -3 1
+  frame_weights: 1 1 -3 2 1 1 -3 1
+  output_file: "output.mp4"
+
+frame_lag:
+  input_file: "input.mp4"
+  num_of_frames: "8"
+  frame_weights: 2 1 -3 1
   output_file: "output.mp4"
 
 extract_frames:

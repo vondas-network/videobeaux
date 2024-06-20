@@ -2,7 +2,7 @@ import typer
 import yaml
 from pathlib import Path
 
-from programs import silence_extraction, resize, convert, extract_frames, sound, reverse, stack_2x, lsd_feedback
+from programs import silence_extraction, resize, convert, extract_frames, sound, reverse, stack_2x, lsd_feedback, frame_lag
 
 config_file = Path(__file__).parent / "config.yaml"
 
@@ -129,7 +129,6 @@ def stack_2x_video(
 @app.command()
 def lsd_feedback_video(
     input_file: str = typer.Option(None, help="Input video file "),
-    input_weights: str = typer.Option(None, help="Input weights"),
     output_file: str = typer.Option(None, help="Output video file")
 ):
 
@@ -138,14 +137,32 @@ def lsd_feedback_video(
     """
     if not input_file:
         input_file= config['lsd_feedback']['input_file']
-    if not input_weights:
-        input_weights= config['lsd_feedback']['input_weights']
     if not output_file:
         output_file = config['lsd_feedback']['output_file']
 
-    lsd_feedback.lsd_feedback_video(input_file, input_weights, output_file)
+    lsd_feedback.lsd_feedback_video(input_file, output_file)
 
+@app.command()
+def frame_lag_video(
+    input_file: str = typer.Option(None, help="Input video file "),
+    num_of_frames: int = typer.Option(None, help="Input weight for frame delay"),    
+    frame_weights: str = typer.Option(None, help="Input weight for frame delay"),    
+    output_file: str = typer.Option(None, help="Output video file")
+):
 
+    """
+    Reverse video file.
+    """
+    if not input_file:
+        input_file= config['frame_lag']['input_file']
+    if not num_of_frames: 
+        num_of_frames= config['frame_lag']['num_of_frames']
+    if not frame_weights: 
+        frame_weights= config['frame_lag']['frame_weights']
+    if not output_file:
+        output_file = config['frame_lag']['output_file']
+
+    frame_lag.frame_lag_video(input_file, num_of_frames, frame_weights, output_file)
 
 @app.command()
 def extract_frames(

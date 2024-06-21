@@ -215,7 +215,7 @@ def stack_2x_vb(
         "input_file2": input_file2, 
         "output_file": output_file
     }
-    defaults = config['reverse']
+    defaults = config['stack_2x']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     stack_2x.stack_2x(**params)
 
@@ -232,7 +232,7 @@ def lsd_feedback_vb(
         "input_file": input_file,
         "output_file": output_file
     }
-    defaults = config['lsd-feedback']
+    defaults = config['lsd_feedback']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     lsd_feedback.lsd_feedback(**params)
 
@@ -249,7 +249,7 @@ def nostalgic_stutter_vb(
         "input_file": input_file,
         "output_file": output_file
     }
-    defaults = config['nostalgic-stutter']
+    defaults = config['nostalgic_stutter']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     nostalgic_stutter.nostalgic_stutter(**params)
 
@@ -326,7 +326,7 @@ def overexposed_stutter_vb(
         "input_file": input_file,
         "output_file": output_file
     }
-    defaults = config['overexposed-stutter']
+    defaults = config['overexposed_stutter']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     overexposed_stutter.overexposed_stutter(**params)
 
@@ -345,7 +345,7 @@ def stutter_pro_vb(
         "stutter": stutter,
         "output_file": output_file
     }
-    defaults = config['stutter-pro']
+    defaults = config['stutter_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     stutter_pro.stutter_pro(**params)
 
@@ -382,7 +382,7 @@ def scrolling_pro_video(
         "verticla": vertical,
         "output_file": output_file
     }
-    defaults = config['scrolling-pro']
+    defaults = config['scrolling_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     scrolling_pro.scrolling_pro(**params)
 
@@ -398,7 +398,7 @@ def blur_pix_video(
         "input_file": input_file,
         "output_file": output_file
     }
-    defaults = config['blur-pix']
+    defaults = config['blur_pix']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     blur_pix.blur_pix(**params)
 

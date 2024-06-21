@@ -35,7 +35,6 @@ print("It's your best friend.")
 print('-' * 50)
 
 config = load_config.load_config()
-print(config)
 
 proj_mgmt_config = config['proj_mgmt']
 v_ext = proj_mgmt_config['default_video_file_ext']
@@ -50,7 +49,7 @@ app = typer.Typer()
 ##########
 # yt-dlp
 ##########
-@app.command('download-yt')
+@app.command('download-yt', help='Downloads the provided link with yt-dlp')
 def yt_dlp_vb(
     yt_url: str = typer.Argument(None, help="URL of the YT video"),
     output_file: str = typer.Argument(None, help="Width of the output video"),
@@ -69,7 +68,7 @@ def yt_dlp_vb(
 ###############
 # transcraibe
 ###############
-@app.command('transcraibe')
+@app.command('transcraibe', help='Transcribes the video with ai (vosk) - transcrAIbe')
 def transcraibe_vb(
     input_file: str = typer.Argument(None, help='Video file you would like to transcribe.'),
     stt_model: str = typer.Argument(None, help="URL of the YT video")

@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def frame_delay_pro2_video(input_file, decay, planes, output_file):
+def frame_delay_pro2(input_file, decay, planes, output_file):
     command = [
         "ffmpeg",
         "-y",
@@ -11,4 +11,3 @@ def frame_delay_pro2_video(input_file, decay, planes, output_file):
 
     run_ffmpeg_command(command)
     print(f"Video processed with frame_delay_pro2 and file is {output_file}")
-

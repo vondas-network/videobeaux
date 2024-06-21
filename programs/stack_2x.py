@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def stack_2x_video(input_file1, input_file2, output_file):
+def stack_2x(input_file1, input_file2, output_file):
     command = [
         "ffmpeg",
         "-y",

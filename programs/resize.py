@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def resize_video(input_file, output_file, width, height):
+def resize(input_file, output_file, width, height):
     command = [
         "ffmpeg",
         "-i", input_file,

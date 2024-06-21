@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def lsd_feedback_video(input_file, output_file):
+def lsd_feedback(input_file, output_file):
     command = [
         "ffmpeg",
         "-y",
@@ -16,4 +16,3 @@ def lsd_feedback_video(input_file, output_file):
     ]
     run_ffmpeg_command(command)
     print(f"Video processed with LSD and the file is {output_file} from {input_file}")
-

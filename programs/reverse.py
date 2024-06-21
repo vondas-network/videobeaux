@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def reverse_video(input_file, output_file):
+def reverse(input_file, output_file):
     command = [
         "ffmpeg",
         "-y",

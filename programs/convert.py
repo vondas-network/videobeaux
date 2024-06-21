@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def convert_video(input_file, output_file, format):
+def convert(input_file, output_file, format):
     command = [
         "ffmpeg",
         "-i", input_file,

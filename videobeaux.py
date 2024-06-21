@@ -1,25 +1,97 @@
 import typer
-import yaml
+from typing_extensions import Annotated
+
 from pathlib import Path
 
-from programs import silence_extraction, resize, convert, extract_frames, sound, reverse, stack_2x, lsd_feedback, frame_delay_pro1, frame_delay_pro2, mirror_delay, blur_pix, overexposed_stutter, scrolling, scrolling_pro, nostalgic_stutter, stutter_pro
+from programs import (
+    silence_xtraction, 
+    resize, 
+    convert, 
+    extract_frames, 
+    download_yt, 
+    transcraibe, 
+    extract_sound, 
+    reverse, 
+    stack_2x,
+    lsd_feedback,
+    nostalgic_stutter,
+    frame_delay_pro1,
+    frame_delay_pro2,
+    mirror_delay,
+    overexposed_stutter,
+    stutter_pro,
+    scrolling,
+    scrolling_pro,
+    blur_pix)
 
-config_file = Path(__file__).parent / "config.yaml"
+from utils import load_config
+from datetime import datetime
 
-def load_config():
-    with open(config_file, 'r') as file:
-        return yaml.safe_load(file)
+from pyfiglet import Figlet
+a = Figlet(font='ogre')
+print(a.renderText("videobeaux"))
+print("Your friendly multilateral video toolkit built for artists by artists.")
+print("It's your best friend.")
+print('-' * 50)
 
-config = load_config()
+config = load_config.load_config()
+print(config)
+
+proj_mgmt_config = config['proj_mgmt']
+v_ext = proj_mgmt_config['default_video_file_ext']
+a_ext = proj_mgmt_config['default_audio_file_ext']
+
+now = datetime.now()
+ct = now.strftime("%Y-%m-%d_%H-%M-%S")
 
 app = typer.Typer()
 
-# V1
-@app.command()
-def silence_xtraction(
-    min_d: int = typer.Option(None, help="Width of the output video"),
-    max_d: int = typer.Option(None, help="Height of the output video"),
-    adj: int = typer.Option(None, help="Height of the output video"),
+
+##########
+# yt-dlp
+##########
+@app.command('download-yt')
+def yt_dlp_vb(
+    yt_url: str = typer.Argument(None, help="URL of the YT video"),
+    output_file: str = typer.Argument(None, help="Width of the output video"),
+    format: str = typer.Argument(v_ext, help="Width of the output video"),
+):
+    params = { 
+        "yt_url": yt_url,
+        "output_file": output_file,  
+        "format": format
+    }
+    defaults = config['download_yt']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    download_yt.download_yt(**params)
+
+
+###############
+# transcraibe
+###############
+@app.command('transcraibe')
+def transcraibe_vb(
+    input_file: str = typer.Argument(None, help='Video file you would like to transcribe.'),
+    stt_model: str = typer.Argument(None, help="URL of the YT video")
+):
+    params = { 
+        "input_file": input_file,
+        "stt_model": stt_model
+    }
+    defaults = config['transcraibe']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    transcraibe.vosk_stt(**params)
+
+
+#####################
+# silence-xtraction
+#####################
+@app.command('silence-xtraction', help="Stitches togehter video chunks that have no discernable words." +
+              "This does NOT use audio analysis, but instead identifes the presence of a 'word' using the .srt transcription file")
+def silence_xtraction_vb(
+    min_d: int = typer.Option(None, help="Minimum duration of a chunk of silence."),
+    max_d: int = typer.Option(None, help="Maximum duration of a chunk of silence."),
+    adj: int = typer.Option(None, help="Adjustment value"),
     input_file: str = typer.Option(None, help="Input video file"),
     output_file: str = typer.Option(None, help="Output video file")
 ):
@@ -28,24 +100,23 @@ def silence_xtraction(
         "max_d": max_d,
         "adj": adj,
         "input_file": input_file, 
-        "output_file": output_file, 
-        
+        "output_file": output_file,
     }
     defaults = config['silence_x']
     params = {key: params.get(key) or defaults[key] for key in defaults}
+    silence_xtraction.silence_xtraction(**params)
 
-    silence_extraction.slncx_main(**params)
 
-@app.command()
-def resize_video(
+##########
+# resize 
+##########
+@app.command('resize', help='Resize a video to the given width and height.')
+def resize_vb(
     input_file: str = typer.Option(None, help="Input video file"),
     output_file: str = typer.Option(None, help="Output video file"),
     width: int = typer.Option(None, help="Width of the output video"),
     height: int = typer.Option(None, help="Height of the output video")
 ):
-    """
-    Resize a video to the given width and height.
-    """
     params = { 
         "input_file": input_file, 
         "output_file": output_file, 
@@ -54,318 +125,284 @@ def resize_video(
     }
     defaults = config['resize']
     params = {key: params.get(key) or defaults[key] for key in defaults}
+    resize.resize(**params)
 
-    resize.resize_video(**params)
 
-@app.command()
-def convert_video(
+###########
+# convert
+###########
+@app.command('convert', help='Convert a video to a different format.')
+def convert_vb(
     input_file: str = typer.Option(None, help="Input video file"),
     output_file: str = typer.Option(None, help="Output video file"),
     format: str = typer.Option(None, help="Format of the output video")
 ):
-    """
-    Convert a video to a different format.
-    """
-    if not input_file:
-        input_file = config['convert']['input_file']
-    if not output_file:
-        output_file = config['convert']['output_file']
-    if not format:
-        format = config['convert']['format']
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file, 
+        "format": format
+    }
+    defaults = config['convert']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    convert.convert(**params)
 
-    convert.convert_video(input_file, output_file, format)
 
-@app.command()
-def extract_frames(
+##################
+# extract-frames
+##################
+@app.command('extract-frames', help='Extract frames from a video at the specified frame rate.')
+def extract_frames_vb(
     input_file: str = typer.Option(None, help="Input video file"),
-    output_folder: str = typer.Option(None, help="Output folder for frames"),
+    output_file: str = typer.Option(None, help="Output folder for frames"),
     frame_rate: int = typer.Option(None, help="Frame rate for extracting frames")
 ):
-    """
-    Extract frames from a video at the specified frame rate.
-    """
-    if not input_file:
-        input_file = config['extract_frames']['input_file']
-    if not output_folder:
-        output_folder = config['extract_frames']['output_folder']
-    if not frame_rate:
-        frame_rate = config['extract_frames']['frame_rate']
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file, 
+        "frame_rate": frame_rate
+    }
+    defaults = config['extract_frames']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    extract_frames.extract_frames(**params)
 
-    extract_frames.extract_frames(input_file, output_folder, frame_rate)
 
-# V2
-@app.command()
-def extract_sound(
-    input_file: str = typer.Option(None, help="Input video file"),
-    output_file: str = typer.Option(None, help="Output audio file")
+#################
+# extract-sound
+#################
+@app.command('extract-sound', help='Extract audio from video file.')
+def extract_sound_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output audio file")
 ):
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['extract_sound']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    print(params)
+    extract_sound.extract_sound(**params)
 
-    """
-    Extract audio from video file.
-    """
-    if not input_file:
-        input_file = config['extract_sound']['input_file']
-    if not output_file:
-        output_file = config['extract_sound']['output_file']
 
-    sound.extract_sound(input_file, output_file)
 
-@app.command()
-def reverse_video(
+###########
+# reverse
+###########
+@app.command('reverse', help='Reverse video file.')
+def reverse_vb(
     input_file: str = typer.Option(None, help="Input video file"),
     output_file: str = typer.Option(None, help="Output video file")
 ):
-
-    """
-    Reverse video file.
-    """
-    if not input_file:
-        input_file = config['reverse']['input_file']
-    if not output_file:
-        output_file = config['reverse']['output_file']
-
-    reverse.reverse_video(input_file, output_file)
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['reverse']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    reverse.reverse(**params)
 
 
-@app.command()
-def stack_2x_video(
+############
+# stack-2x
+############
+@app.command('stack-2x', help='Stack 2 videos on top of each other keeping the original orientation.')
+def stack_2x_vb(
     input_file1: str = typer.Option(None, help="Input video file 1"),
     input_file2: str = typer.Option(None, help="Input video file 2"),
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file1": input_file1,
+        "input_file2": input_file2, 
+        "output_file": output_file
+    }
+    defaults = config['reverse']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    stack_2x.stack_2x(**params)
 
-    """
-    Stack 2 videos on top of each other keeping the original orientation.
-    """
-    if not input_file1:
-        input_file1= config['stack_2x']['input_file1']
-    if not input_file2:
-        input_file2 = config['stack_2x']['input_file2']
-    if not output_file:
-        output_file = config['stack_2x']['output_file']
 
-    stack_2x.stack_2x_video(input_file1, input_file2, output_file)
-
-@app.command()
-def lsd_feedback_video(
+################
+# lsd-feedback
+################
+@app.command('lsd-feedback', help='Apply LSD feedback effect to video file.')
+def lsd_feedback_vb(
     input_file: str = typer.Option(None, help="Input video file "),
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['lsd-feedback']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    lsd_feedback.lsd_feedback(**params)
 
-    """
-    Apply LSD feedback effect to video file.
-    """
-    if not input_file:
-        input_file= config['lsd_feedback']['input_file']
-    if not output_file:
-        output_file = config['lsd_feedback']['output_file']
 
-    lsd_feedback.lsd_feedback_video(input_file, output_file)
-
-@app.command()
-def nostalgic_stutter_video(
+#####################
+# nostalgic-stutter
+#####################
+@app.command('nostalgic-stutter', help='Apply nostaglic stutter effect to video file.')
+def nostalgic_stutter_vb(
     input_file: str = typer.Option(None, help="Input video file"),
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['nostalgic-stutter']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    nostalgic_stutter.nostalgic_stutter(**params)
 
-    """
-    Apply nostaglic stutter effect to video file.
-    """
-    if not input_file:
-        input_file= config['lsd_feedback']['input_file']
-    if not output_file:
-        output_file = config['lsd_feedback']['output_file']
 
-    nostalgic_stutter.nostalgic_stutter_video(input_file, output_file)
-
-@app.command()
-def frame_delay_pro1_video(
+####################
+# frame-delay-pro1
+####################
+@app.command('frame-delay-pro1', help='Apply the pro1 frame delay to video file.')
+def frame_delay_pro1_vb(
     input_file: str = typer.Option(None, help="Input video file "),
     num_of_frames: int = typer.Option(None, help="Input weight for frame delay"),    
     frame_weights: str = typer.Option(None, help="Input weight for frame delay"),    
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file": input_file,
+        "num_of_frames": num_of_frames,
+        "frame_weights": frame_weights,
+        "output_file": output_file
+    }
+    defaults = config['frame_delay_pro1']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    frame_delay_pro1.frame_delay_pro1(**params)
 
-    """
-    Apply the pro1 frame delay to video file.
-    """
-    if not input_file:
-        input_file= config['frame_delay_pro1']['input_file']
-    if not num_of_frames: 
-        num_of_frames= config['frame_delay_pro1']['num_of_frames']
-    if not frame_weights: 
-        frame_weights= config['frame_delay_pro1']['frame_weights']
-    if not output_file:
-        output_file = config['frame_delay_pro1']['output_file']
 
-    frame_delay_pro1.frame_delay_pro1_video(input_file, num_of_frames, frame_weights, output_file)
-
-@app.command()
-def frame_delay_pro2_video(
+####################
+# frame-delay-pro2
+####################
+@app.command('frame-delay-pro2', help='Apply the pro2 frame delay to video file.')
+def frame_delay_pro2_vb(
     input_file: str = typer.Option(None, help="Input video file "),
     decay: int = typer.Option(None, help=""),    
     planes: str = typer.Option(None, help="Input weight for frame delay"),    
     output_file: str = typer.Option(None, help="Output video file")
 ):
-
-    """
-    Apply the pro2 frame delay to video file.
-    """
-    if not input_file:
-        input_file= config['frame_delay_pro2']['input_file']
-    if not decay: 
-        decay= config['frame_delay_pro2']['decay']
-    if not planes: 
-        planes= config['frame_delay_pro2']['planes']
-    if not output_file:
-        output_file = config['frame_delay_pro2']['output_file']
-
-    frame_delay_pro2.frame_delay_pro2_video(input_file, decay, planes, output_file)
+    params = { 
+        "input_file": input_file,
+        "decay": decay,
+        "planes": planes,
+        "output_file": output_file
+    }
+    defaults = config['frame_delay_pro2']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    frame_delay_pro2.frame_delay_pro2(**params)
 
 
-@app.command()
-def mirror_delay_video(
+################
+# mirror-delay
+################
+@app.command('mirror-delay', help='Apply mirrored delay effect to video file.')
+def mirror_delay_vb(
     input_file: str = typer.Option(None, help="Input video file"), 
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['mirror_delay']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    print(params)
+    mirror_delay.mirror_delay(**params)
 
-    """
-    Apply mirrored delay effect to video file.
-    """
-    if not input_file:
-        input_file= config['frame_lag']['input_file']
-    if not output_file:
-        output_file = config['frame_lag']['output_file']
 
-    mirror_delay.mirror_delay_video(input_file, output_file)
-
-@app.command()
-def overexposed_stutter_video(
+######################
+# overexposed-stutter
+######################
+@app.command('overexposed-stutter', help='Apply overexposed stutter effect to video file.')
+def overexposed_stutter_vb(
     input_file: str = typer.Option(None, help="Input video file"), 
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['overexposed-stutter']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    overexposed_stutter.overexposed_stutter(**params)
 
-    """
-    Apply overexposed stutter effect to video file.
-    """
-    if not input_file:
-        input_file= config['overexposed_stutter']['input_file']
-    if not output_file:
-        output_file = config['overexposed_stutter']['output_file']
 
-    overexposed_stutter.overexposed_stutter_video(input_file, output_file)
-
-@app.command()
-def stutter_pro_video(
+###############
+# stutter-pro
+###############
+@app.command('stutter-pro', help='Apply stutter pro effect to video file.')
+def stutter_pro_vb(
     input_file: str = typer.Option(None, help="Input video file"), 
     stutter: str = typer.Option(None, help="Frame stutter parameter"), 
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file": input_file,
+        "stutter": stutter,
+        "output_file": output_file
+    }
+    defaults = config['stutter-pro']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    stutter_pro.stutter_pro(**params)
 
-    """
-    Apply stutter pro effect to video file.
-    """
-    if not input_file:
-        input_file= config['stutter_pro']['input_file']
-    if not stutter:
-        stutter= config['stutter_pro']['stutter']
-    if not output_file:
-        output_file = config['stutter_pro']['output_file']
-
-    stutter_pro.stutter_pro_video(input_file, stutter, output_file)
-
-
-@app.command()
-def scrolling_video(
+#############
+# scrolling
+#############
+@app.command('scrolling', help='Apply scrolling effect to video file.')
+def scrolling_vb(
     input_file: str = typer.Option(None, help="Input video file"), 
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['scrolling']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    scrolling.scrolling(input_file, output_file)
 
-    """
-    Apply scrolling effect to video file.
-    """
-    if not input_file:
-        input_file= config['scrolling']['input_file']
-    if not output_file:
-        output_file = config['scrolling']['output_file']
 
-    scrolling.scrolling_video(input_file, output_file)
-
-@app.command()
+#################
+# scrolling-pro
+#################
+@app.command('scrolling-pro', help='Apply scrolling pro effect to video file.')
 def scrolling_pro_video(
     input_file: str = typer.Option(None, help="Input video file"), 
     horizontal: str = typer.Option(None, help="Horizontal scroll parameter"), 
     vertical: str = typer.Option(None, help="Vertical scroll parameter"), 
     output_file: str = typer.Option(None, help="Output video file")
 ):
+    params = { 
+        "input_file": input_file,
+        "horizontal": horizontal,
+        "verticla": vertical,
+        "output_file": output_file
+    }
+    defaults = config['scrolling-pro']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    scrolling_pro.scrolling_pro(**params)
 
-    """
-    Apply scrolling pro effect to video file.
-    """
-    if not input_file:
-        input_file= config['scrolling_pro']['input_file']
-    if not horizontal:
-        horizontal= config['scrolling_pro']['horizontal']
-    if not vertical:
-        vertical= config['scrolling_pro']['vertical']
-    if not output_file:
-        output_file = config['scrolling_pro']['output_file']
-
-    scrolling_pro.scrolling_pro_video(input_file, horizontal, vertical, output_file)
-
-
-@app.command()
+############
+# blur-pix
+############
+@app.command('blur-pix', help='Apply blur pix effect to video file.')
 def blur_pix_video(
-    input_file: str = typer.Option(None, help="Input video file"), 
-    output_file: str = typer.Option(None, help="Output video file")
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file")
 ):
-
-    """
-    Apply blur pix effect to video file.
-    """
-    if not input_file:
-        input_file= config['blur_pix']['input_file']
-    if not output_file:
-        output_file = config['blur_pix']['output_file']
-
-    blur_pix.blur_pix_video(input_file, output_file)
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['blur-pix']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    blur_pix.blur_pix(**params)
 
 if __name__ == "__main__":
     app()
 
-
-'''def main():
-
-    parser = argparse.ArgumentParser(description="VideoBeaux - It's You're Best Friend")
-    subparsers = parser.add_subparsers(title='Subcommands', dest='command', help='Sub-command help')
-
-
-    # Program selection
-    #add_parser = subparsers.add_parser('program', help='Add a new task')
-    #add_parser.add_argument('task', type=str, help='The task to add')
-
-    # Project Management
-    #prjmgmt_parser = subparsers.add_parser('project', help='Add a new task')
-    #prjmgmt_parser.add_argument('--input_file', dest='infile', type=str, help='Full path to input file') # todo - use a path defined in config 
-    #prjmgmt_parser.add_argument('--output_file', dest='outfile', type=str, help='filename of output file that will be save in videobeaux root dir') # todo - use a path defined in config 
-
-    
-
-
-    # Silence Xtraction
-    silencextraction_parser = subparsers.add_parser('silence-xtraction', help='extracts silence from a given video')
-    silencextraction_parser.add_argument('--min_d', dest='mind', type=int, help='Minimum duration of a silent chunk')
-    silencextraction_parser.add_argument('--max_d', dest='maxd', type=int, help='Maximum duration of a silent chunk')
-    silencextraction_parser.add_argument('--adj', dest='adj', type=int, help='Maximum duration of a silent chunk')
-    silencextraction_parser.add_argument('--input_file', dest='infile', type=str, help='Full path to input file') # todo - use a path defined in config 
-    silencextraction_parser.add_argument('--output_file', dest='outfile', type=str, help='filename of output file that will be save in videobeaux root dir') # todo - use a path defined in config 
-
-    args = parser.parse_args()
-    
-    if args.command == 'silence-xtraction':
-        silence_extraction.slncx_main(args.mind, args.maxd, args.adj, args.infile, args.outfile)
-
-    else:
-        parser.print_help()
-
-'''

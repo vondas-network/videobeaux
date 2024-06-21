@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def blur_pix_video(input_file, output_file):
+def blur_pix(input_file, output_file):
     command = [
         "ffmpeg",
         "-y",

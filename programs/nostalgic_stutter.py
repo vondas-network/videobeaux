@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def nostalgic_stutter_video(input_file, output_file):
+def nostalgic_stutter(input_file, output_file):
     command = [
         "ffmpeg",
         "-y",

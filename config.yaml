@@ -64,7 +64,7 @@ stack_2x:
 
 lsd_feedback:
   input_file: 'inputs\input.mp4'
-  frame_weights: 1 1 -3 2 1 1 -3 1
+  #frame_weights: 1 1 -3 2 1 1 -3 1
   output_file: 'outputs\lsd_feedback.mp4'
 
 frame_delay_pro1:

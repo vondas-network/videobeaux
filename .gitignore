@@ -163,4 +163,4 @@ cython_debug/
 
 vosk-models/
 
-config.yaml
+.yaml

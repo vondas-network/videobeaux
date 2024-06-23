@@ -11,7 +11,7 @@ proj_mgmt:
 download_yt:
   yt_url: '''
   output_file: 'outputs\filename'
-  format: 'webm'
+  format: 'mp4'
 
 transcraibe:
   input_file: 'inputs\input.mp4'

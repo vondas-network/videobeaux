@@ -9,7 +9,7 @@ proj_mgmt:
   default_audio_file_ext: '.wav'
 
 download_yt:
-  yt_url: '''
+  yt_url: ''
   output_file: 'outputs\filename'
   format: 'mp4'
 

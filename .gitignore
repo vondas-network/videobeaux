@@ -162,3 +162,5 @@ cython_debug/
 #.idea/
 
 vosk-models/
+
+config.yaml

@@ -9,9 +9,9 @@ proj_mgmt:
   default_audio_file_ext: '.wav'
 
 download_yt:
-  yt_url: 'https://www.youtube.com/watch?v=jNQXAC9IVRw'
-  output_file: 'outputs\oliphant'
-  format: 'mp4'
+  yt_url: '''
+  output_file: 'outputs\filename'
+  format: 'webm'
 
 transcraibe:
   input_file: 'inputs\input.mp4'
@@ -34,11 +34,11 @@ extract_frames:
   frame_rate: 24
 
 silence_x:
+  input_file: 'inputs\input.mp4'
+  output_file: 'outputs\output.mkv'
   min_d: 0
   max_d: 1000
   adj: 0
-  input_file:  'inputs\input.mp4'
-  output_file: 'outputs\silence.mp4'
 
 extract_sound:
   input_file: 'inputs\input.mp4'

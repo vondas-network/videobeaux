@@ -101,6 +101,7 @@ def silence_xtraction_vb(
         "input_file": input_file, 
         "output_file": output_file,
     }
+
     defaults = config['silence_x']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     silence_xtraction.silence_xtraction(**params)

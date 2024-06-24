@@ -5,7 +5,7 @@ def scrolling_pro(input_file, horizontal, vertical, output_file):
         "ffmpeg",
         "-y",
         "-i", input_file,
-        "-filter_complex", f"[0:v]scroll=horizontal={horizontal}:h=0.00:vertical={vertical}[out_v]", 
+        "-filter_complex", f"[0:v]scroll=horizontal={horizontal}:vertical={vertical}[out_v]", 
         "-map", "[out_v]",
         "-map", "0:a",
         output_file

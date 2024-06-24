@@ -5,7 +5,7 @@ def mirror_delay(input_file, output_file):
         "ffmpeg",
         "-y",
         "-i", input_file,
-        "-filter_complex", "[0:v]copy[1];[0:v]tmix=frames=8:weights=1 1 -3 2 1 1 -3 1[3];[1]hflip[2];[0:v][2][3]mix=inputs=3[out_v]", 
+        "-filter_complex", "[0:v]copy[1];[0:v]tmix=frames=8:weights=1 1 -2 2 1 1 -2 1[3];[1]hflip[2];[0:v][2][3]mix=inputs=3[out_v]", 
         "-map", "[out_v]",
         "-map", "0:a",
         output_file

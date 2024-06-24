@@ -5,7 +5,7 @@ def frame_delay_pro2(input_file, decay, planes, output_file):
         "ffmpeg",
         "-y",
         "-i", input_file,
-        "-vf", f"format=gbrp,lagfun=decay={decay}:planes={planes}",
+        "-vf", f"format=yuv420p,lagfun=decay={decay}:planes={planes}",
         output_file
     ]
 

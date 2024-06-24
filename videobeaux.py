@@ -5,6 +5,7 @@ from pathlib import Path
 
 from programs import (
     blur_pix,
+    broken_scroll,
     convert, 
     download_yt,
     extract_frames, 
@@ -16,8 +17,7 @@ from programs import (
     nostalgic_stutter,
     overexposed_stutter,
     resize, 
-    reverse, 
-    scrolling,
+    reverse,
     scrolling_pro,
     silence_xtraction,    
     stack_2x,    
@@ -350,10 +350,10 @@ def stutter_pro_vb(
     stutter_pro.stutter_pro(**params)
 
 #############
-# scrolling
+# broken_scroll
 #############
-@app.command('scrolling', help='Apply scrolling effect to video file.')
-def scrolling_vb(
+@app.command('broken-scroll', help='Apply broken_scroll effect to video file.')
+def broken_scroll_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
     output_file: str = typer.Argument(None, help="Output video file")
 ):
@@ -361,9 +361,9 @@ def scrolling_vb(
         "input_file": input_file,
         "output_file": output_file
     }
-    defaults = config['scrolling']
+    defaults = config['broken_scroll']
     params = {key: params.get(key) or defaults[key] for key in defaults}
-    scrolling.scrolling(input_file, output_file)
+    broken_scroll.broken_scroll(**params)
 
 
 #################

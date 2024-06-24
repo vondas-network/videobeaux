@@ -3,6 +3,7 @@ inputs/
 outputs/
 *.mp4
 .DS_Store
+Examples/
 
 
 # Byte-compiled / optimized / DLL files

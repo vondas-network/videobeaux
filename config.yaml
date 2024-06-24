@@ -93,6 +93,11 @@ broken_scroll:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/broken_scroll.mp4'
 
+speed:
+  input_file: 'inputs/input.mp4'
+  speed_factor: 1.5
+  output_file: 'outputs/speed.mp4'  
+
 scrolling_pro:
   input_file: 'inputs/input.mp4'
   # horizontal: "0.003"

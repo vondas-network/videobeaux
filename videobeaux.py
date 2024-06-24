@@ -20,6 +20,7 @@ from programs import (
     reverse,
     scrolling_pro,
     silence_xtraction,    
+    speed,
     stack_2x,    
     stutter_pro)
 
@@ -348,6 +349,22 @@ def stutter_pro_vb(
     defaults = config['stutter_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     stutter_pro.stutter_pro(**params)
+
+#############
+# speed
+#############
+@app.command('speed', help='Apply speed effect to video file.')
+def speed_vb(
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['speed']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    speed.speed(**params)
 
 #############
 # broken_scroll

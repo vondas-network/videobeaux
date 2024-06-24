@@ -157,7 +157,7 @@ https://github.com/vondas-network/videobeaux/assets/7625379/4a4272de-e074-4e37-8
 
 speed
 
-https://github.com/vondas-network/videobeaux/assets/7625379/2be77c39-d59b-4d12-84b8-9b02db511e18
+https://github.com/vondas-network/videobeaux/assets/7625379/23535fc6-0407-4f3d-afcf-2067b3e66703
 
 stack_2x
 

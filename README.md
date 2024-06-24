@@ -1,14 +1,18 @@
 #  videobeaux
+<p align="center">
+  <img width="35%" height="35%" src="https://github.com/vondas-network/videobeaux/blob/main/img/7na1n3u7ji_72eycdz6el_vc011887.png"/>  
+</p>
 
-## Description
-Your friendly multilateral video toolkit built for artists by artists. It's your best friend.
+<p align="center"><em>Your friendly multilateral video toolkit built for artists by artists. It's your best friend.</em></p> 
 
 ## Available Programs
 | Program | Description |
 | -------- | ------- | 
 | blur_pix | Extracting the silence out of a video file | 
 | convert | Simple video file convert | 
+| download_yt | Video ripper | 
 | extract_frames | Extract individuals frames from a video file as PNGs | 
+| extract_sound | Extract audio from video file |
 | frame_delay_pro1 | Apply frame delay effect with parameter input | 
 | frame_delay_pro2 | Apply frame delay effect with parameter input | 
 | lsd_feedback | Apply LSD-like frame delay effect | 
@@ -19,8 +23,7 @@ Your friendly multilateral video toolkit built for artists by artists. It's your
 | reverse | Reverse video file | 
 | scrolling_pro | Apply video scrolling effect with definable parameters | 
 | scrolling | Apply static video scrolling effect | 
-| silence_extraction | Extracting the silence out of a video file | 
-| sound | Extract audio from video file | 
+| silence_extraction | Extracting the silence out of a video file |  
 | stack_2x | Stack 2 videos on top of each other keeping the original orientation | 
 | stutter_pro | Apply frame stutter effect with definable parameters | 
 

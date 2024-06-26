@@ -1,6 +1,5 @@
-#  videobeaux
 <p align="center">
-  <img width="35%" height="35%" src="https://github.com/vondas-network/videobeaux/blob/main/img/7na1n3u7ji_72eycdz6el_vc011887.png"/>  
+  <img width="45%" height="45%" src="https://github.com/vondas-network/videobeaux/blob/main/img/videobeaux-1.png?raw=true"/>  
 </p>
 
 <p align="center"><em>Your friendly multilateral video toolkit built for artists by artists. It's your best friend.</em></p> 

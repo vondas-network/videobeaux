@@ -22,7 +22,8 @@ from programs import (
     silence_xtraction,    
     speed,
     stack_2x,    
-    stutter_pro)
+    stutter_pro,
+    transcraibe)
 
 from utils import load_config
 from datetime import datetime

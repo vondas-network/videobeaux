@@ -14,7 +14,7 @@ download_yt:
   format: 'mp4'
 
 transcraibe:
-  input_file: 'inputs/input.mp4'
+  input_file: '/Users/rr/Downloads/trumpbiden2024-1.mp4'
   stt_model: 'vosk-models/vosk-model-en-us-0.42-gigaspeech'
 
 resize:
@@ -34,7 +34,7 @@ extract_frames:
   frame_rate: 24
 
 silence_x:
-  input_file: 'inputs/input.mp4'
+  input_file: '/Users/rr/Downloads/trumpbiden2024-1.mp4'
   output_file: 'outputs/output.mkv'
   min_d: 0
   max_d: 1000

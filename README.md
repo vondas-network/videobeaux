@@ -26,6 +26,7 @@
 | speed | Change the video and audio speed of a file |  
 | stack_2x | Stack 2 videos on top of each other keeping the original orientation | 
 | stutter_pro | Apply frame stutter effect with definable parameters | 
+| transraibe | AI-based transcription tool | 
 
 ## Dependencies
 FFmpeg is required for the project. Install *ffmpeg* using [Homebrew](https://formulae.brew.sh/formula/ffmpeg)

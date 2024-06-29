@@ -14,7 +14,7 @@ download_yt:
   format: 'mp4'
 
 transcraibe:
-  input_file: '/Users/rr/Downloads/trumpbiden2024-1.mp4'
+  input_file: '/Users/rr/Downloads/trumpbiden2024.webm'
   stt_model: 'vosk-models/vosk-model-en-us-0.42-gigaspeech'
 
 resize:
@@ -34,8 +34,8 @@ extract_frames:
   frame_rate: 24
 
 silence_x:
-  input_file: '/Users/rr/Downloads/trumpbiden2024-1.mp4'
-  output_file: 'outputs/output.mkv'
+  input_file: '/Users/rr/Downloads/trumpbiden2024.webm'
+  output_file: 'outputs/output.mp4'
   min_d: 0
   max_d: 1000
   adj: 0
@@ -56,6 +56,11 @@ stutter_pro:
   input_file: 'inputs/input.mp4'
   stutter: "233.4"
   output_file: 'outputs/stutter_pro.mp4'
+
+num_edits:
+  input_file: 'inputs/input.mp4'
+  count: "1"
+  output_file: 'outputs/output.mp4'
 
 stack_2x:
   input_file1: 'inputs/input.mp4'

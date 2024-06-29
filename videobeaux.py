@@ -1,6 +1,11 @@
 import typer
 from typing_extensions import Annotated
 
+# NEW
+import os 
+import calendar
+ 
+
 from pathlib import Path
 
 from programs import (
@@ -15,6 +20,7 @@ from programs import (
     lsd_feedback,
     mirror_delay,
     nostalgic_stutter,
+    num_edits,
     overexposed_stutter,
     resize, 
     reverse,
@@ -238,6 +244,24 @@ def lsd_feedback_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     lsd_feedback.lsd_feedback(**params)
 
+################
+# num-edits
+################
+@app.command('num-edits', help='Apply LSD feedback effect to video file.')
+def num_edits_vb(
+    input_file: str = typer.Argument(None, help="Input video file "),
+    count: str = typer.Argument(None, help="Input video file "),
+    output_file: str = typer.Argument(None, help="Input video file ")
+):
+    params = { 
+        "input_file": input_file,
+        "count": count,
+        "output_file": output_file
+    }
+    defaults = config['num_edits']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    num_edits.num_edits(**params)
+
 
 #####################
 # nostalgic-stutter
@@ -324,6 +348,7 @@ def overexposed_stutter_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
     output_file: str = typer.Argument(None, help="Output video file")
 ):
+
     params = { 
         "input_file": input_file,
         "output_file": output_file

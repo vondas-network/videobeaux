@@ -22,6 +22,7 @@ from programs import (
     nostalgic_stutter,
     num_edits,
     overexposed_stutter,
+    overlay_img_pro,
     resize, 
     reverse,
     scrolling_pro,
@@ -299,6 +300,33 @@ def frame_delay_pro1_vb(
     defaults = config['frame_delay_pro1']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     frame_delay_pro1.frame_delay_pro1(**params)
+
+# overlay_img_pro
+####################
+@app.command('overlay-img-pro', help='Apply the pro1 frame delay to video file.')
+def overlay_img_pro_vb(
+    input_file: str = typer.Argument(None, help="Input video file "),
+    overlay_image: int = typer.Argument(None, help="Input weight for frame delay"),    
+    x_position: str = typer.Argument(None, help="Input weight for frame delay"),    
+    y_position: str = typer.Argument(None, help="Output video file"),
+    overlay_width: str = typer.Argument(None, help="Output video file"),
+    overlay_height: str = typer.Argument(None, help="Output video file"),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+
+
+    params = { 
+        "input_file": input_file,
+        "overlay_image": overlay_image,
+        "x_position": x_position,
+        "y_position": y_position,
+        "overlay_width": overlay_width,
+        "overlay_height": overlay_height,
+        "output_file": output_file
+    }
+    defaults = config['overlay_img_pro']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    overlay_img_pro.overlay_img_pro(**params)
 
 
 ####################

@@ -86,6 +86,16 @@ frame_delay_pro2:
   planes: "7"
   output_file: 'outputs/frame_delay_pro2.mp4'
 
+overlay_img_pro:
+  input_file: 'inputs/input.mp4'
+  overlay_image: 'inputs/input.png'
+  x_position: "300"
+  y_position: "100"
+  overlay_width: "200"
+  overlay_height: "100"
+  output_file: 'outputs/overlay_img_pro.mp4'
+
+
 mirror_delay:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/mirror_delay.mp4'

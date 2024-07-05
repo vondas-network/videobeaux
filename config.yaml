@@ -49,6 +49,13 @@ frame_delay_pro2:
   planes: "7"
   output_file: 'outputs/frame_delay_pro2.mp4'
 
+looper_pro:
+  input_file: 'inputs/input.mp4'
+  loop_count: '3'
+  size_in_frames: '20'
+  start_frame: '10'
+  output_file: 'outputs/looper_pro.mp4'
+
 lsd_feedback:
   input_file: 'inputs/input.mp4'
   #frame_weights: 1 1 -3 2 1 1 -3 1

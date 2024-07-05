@@ -17,6 +17,7 @@ from programs import (
     extract_sound, 
     frame_delay_pro1,
     frame_delay_pro2,
+    looper_pro,
     lsd_feedback,
     mirror_delay,
     nostalgic_stutter,
@@ -214,6 +215,28 @@ def lsd_feedback_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     lsd_feedback.lsd_feedback(**params)
 
+#################
+# looper-pro
+#################
+@app.command('looper-pro', help='Apply scrolling pro effect to video file.')
+def scrolling_pro_video(
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    loop_count: str = typer.Argument(None, help="Horizontal scroll parameter"), 
+    size_in_frames: str = typer.Argument(None, help="Vertical scroll parameter"), 
+    start_frame: str = typer.Argument(None, help="Vertical scroll parameter"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "loop_count": loop_count,
+        "size_in_frames": size_in_frames,
+        "start_frame": start_frame,
+        "output_file": output_file
+    }
+    defaults = config['looper_pro']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    looper_pro.looper_pro(**params)
+
 ################
 # mirror-delay
 ################
@@ -372,7 +395,7 @@ def scrolling_pro_video(
     params = { 
         "input_file": input_file,
         "horizontal": horizontal,
-        "verticla": vertical,
+        "vertical": vertical,
         "output_file": output_file
     }
     defaults = config['scrolling_pro']

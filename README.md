@@ -14,10 +14,12 @@
 | extract_sound | Extract audio from video file |
 | frame_delay_pro1 | Apply frame delay effect with parameter input | 
 | frame_delay_pro2 | Apply frame delay effect with parameter input | 
+| looper_pro | Apply video looper effect base on frame size & start frame | 
 | lsd_feedback | Apply LSD-like frame delay effect | 
 | mirror_delay | Apply a frame delay plus a mirrored effect | 
 | nostalgic_stutter | Apply frame stutter akin to a corrupted file | 
 | overexposed_stutter | Apply a frame stutter and exposing the video like the file is corrupted | 
+| overlay_img_pro | Overlay an image with location & dimension control | 
 | resize | Resizing the dimensions of a video file |
 | reverse | Reverse video file | 
 | scrolling_pro | Apply video scrolling effect with definable parameters | 

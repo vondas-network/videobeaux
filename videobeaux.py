@@ -218,12 +218,12 @@ def lsd_feedback_vb(
 #################
 # looper-pro
 #################
-@app.command('looper-pro', help='Apply scrolling pro effect to video file.')
+@app.command('looper-pro', help='Apply video looper effect base on frame size & start frame.')
 def scrolling_pro_video(
     input_file: str = typer.Argument(None, help="Input video file"), 
-    loop_count: str = typer.Argument(None, help="Horizontal scroll parameter"), 
-    size_in_frames: str = typer.Argument(None, help="Vertical scroll parameter"), 
-    start_frame: str = typer.Argument(None, help="Vertical scroll parameter"), 
+    loop_count: str = typer.Argument(None, help="Number of video loops"), 
+    size_in_frames: str = typer.Argument(None, help="Size of loop in frames"), 
+    start_frame: str = typer.Argument(None, help="Starting frame of loop"), 
     output_file: str = typer.Argument(None, help="Output video file")
 ):
     params = { 
@@ -307,14 +307,14 @@ def overexposed_stutter_vb(
 
 # overlay_img_pro
 ####################
-@app.command('overlay-img-pro', help='Apply the pro1 frame delay to video file.')
+@app.command('overlay-img-pro', help='Overlay an image with location & dimension control.')
 def overlay_img_pro_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
-    overlay_image: int = typer.Argument(None, help="Input weight for frame delay"),    
-    x_position: str = typer.Argument(None, help="Input weight for frame delay"),    
-    y_position: str = typer.Argument(None, help="Output video file"),
-    overlay_width: str = typer.Argument(None, help="Output video file"),
-    overlay_height: str = typer.Argument(None, help="Output video file"),
+    overlay_image: int = typer.Argument(None, help="Image file"),    
+    x_position: str = typer.Argument(None, help="X position of the image file"),    
+    y_position: str = typer.Argument(None, help="Y position of the image file"),
+    overlay_width: str = typer.Argument(None, help="Overlay image width"),
+    overlay_height: str = typer.Argument(None, help="Overlay image height"),
     output_file: str = typer.Argument(None, help="Output video file")
 ):
     params = { 

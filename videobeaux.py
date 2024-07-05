@@ -9,9 +9,11 @@ import calendar
 from pathlib import Path
 
 from programs import (
+    bad_contrast,
     blur_pix,
     broken_scroll,
     convert, 
+    double_cup,
     download_yt,
     extract_frames, 
     extract_sound, 
@@ -55,6 +57,21 @@ ct = now.strftime("%Y-%m-%d_%H-%M-%S")
 
 app = typer.Typer()
 
+#################
+# bad_contrast
+#################
+@app.command('bad-contrast', help='Apply a bad constrast effect.')
+def bad_contrast_vb(
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['bad_contrast']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    bad_contrast.bad_contrast(**params)
 
 ############
 # blur-pix
@@ -105,6 +122,22 @@ def convert_vb(
     defaults = config['convert']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     convert.convert(**params)
+
+###########
+# double_cup
+###########
+@app.command('double-cup', help='Apply the effect of purple drank.')
+def double_cup_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['double_cup']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    double_cup.double_cup(**params)    
 
 ##########
 # download_yt : yt-dlp 

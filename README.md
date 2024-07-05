@@ -7,8 +7,10 @@
 ## Available Programs
 | Program | Description |
 | -------- | ------- | 
+| bad_contrast | Apply a bad constrast effect | 
 | blur_pix | Extracting the silence out of a video file | 
 | convert | Simple video file convert | 
+| double_cup | Apply the effect of purple drank | 
 | download_yt | Video ripper | 
 | extract_frames | Extract individuals frames from a video file as PNGs | 
 | extract_sound | Extract audio from video file |

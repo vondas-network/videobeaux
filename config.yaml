@@ -21,6 +21,10 @@ convert:
   output_file: 'outputs/output.mkv'
   format: "avi"
 
+double_cup:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/double_cup.mp4'
+
 download_yt:
   yt_url: ''
   output_file: 'outputs/filename'
@@ -108,6 +112,10 @@ scrolling_pro:
   horizontal: "-0.0013"
   vertical: "-0.0016"  
   output_file: 'outputs/scrolling_pro.mp4'
+
+bad_contrast:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/bad_contrast.mp4'
 
 silence_x:
   input_file: '/Users/rr/Downloads/trumpbiden2024.webm'

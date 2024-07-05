@@ -112,6 +112,10 @@ Options:
 
 ## Video Exaxmples
 
+bad_contrast
+
+https://github.com/vondas-network/videobeaux/assets/7625379/39d40788-cd88-4094-b229-5378c2c8d26e
+
 blur_pix
 
 https://github.com/vondas-network/videobeaux/assets/7625379/65403294-3e34-4ff8-816a-5de7c80c811d
@@ -119,6 +123,10 @@ https://github.com/vondas-network/videobeaux/assets/7625379/65403294-3e34-4ff8-8
 broken_scroll
 
 https://github.com/vondas-network/videobeaux/assets/7625379/4cdebccc-8519-45c6-aded-089db73d20d2
+
+double_cup
+
+https://github.com/vondas-network/videobeaux/assets/7625379/b953c217-8a67-4dad-bf80-9b1cfa55a246
 
 frame_delay_pro1-1
 
@@ -148,6 +156,10 @@ lsd_feedback
 
 https://github.com/vondas-network/videobeaux/assets/7625379/9653929c-30ad-4c72-81c8-e3777c590783
 
+looper_pro
+
+https://github.com/vondas-network/videobeaux/assets/7625379/3fc09a93-29fb-4ecd-bb55-0bf582b53d9e
+
 mirror_delay
 
 https://github.com/vondas-network/videobeaux/assets/7625379/a3dea5c6-03a6-4f65-951d-211f50457b63
@@ -159,6 +171,10 @@ https://github.com/vondas-network/videobeaux/assets/7625379/3cef37d9-093f-4bd9-8
 overexposed_stutter
 
 https://github.com/vondas-network/videobeaux/assets/7625379/f7250a1e-3cf5-4826-977a-a5a18b231ddb
+
+overlay_img_pro
+
+https://github.com/vondas-network/videobeaux/assets/7625379/11871133-9ca3-4fae-b8b9-f6189ba13aae
 
 reverse
 

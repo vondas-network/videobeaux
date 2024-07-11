@@ -9,7 +9,7 @@
 | -------- | ------- | 
 | bad_contrast | Apply a bad constrast effect | 
 | blur_pix | Extracting the silence out of a video file | 
-| bpred | Apply bad Predator heat vision effect | 
+| bad_predator | Apply bad Predator heat vision effect | 
 | convert | Simple video file convert | 
 | double_cup | Apply the effect of purple drank | 
 | download_yt | Video ripper | 
@@ -120,6 +120,10 @@ bad_contrast
 
 https://github.com/vondas-network/videobeaux/assets/7625379/9ba59b08-79a8-4a09-8b18-c0fe90a6c5e2
 
+bad_predator
+
+https://github.com/vondas-network/videobeaux/assets/7625379/0968ad50-cc97-4336-938f-01b47d86a7bd
+
 blur_pix
 
 https://github.com/vondas-network/videobeaux/assets/7625379/65403294-3e34-4ff8-816a-5de7c80c811d
@@ -131,6 +135,10 @@ https://github.com/vondas-network/videobeaux/assets/7625379/4cdebccc-8519-45c6-a
 double_cup
 
 https://github.com/vondas-network/videobeaux/assets/7625379/83d30a18-40d1-42e4-aff3-dbd50d67a7d1
+
+fever
+
+https://github.com/vondas-network/videobeaux/assets/7625379/b476426f-0ca6-4667-be40-97df932b9909
 
 frame_delay_pro1-1
 
@@ -180,6 +188,10 @@ overlay_img_pro
 
 https://github.com/vondas-network/videobeaux/assets/7625379/3932d910-b898-4ed7-ba3a-288a708c0d83
 
+pickle_juice
+
+https://github.com/vondas-network/videobeaux/assets/7625379/387bfff5-fbdd-423d-b482-8ab4d5ce744f
+
 reverse
 
 https://github.com/vondas-network/videobeaux/assets/7625379/74367227-6fee-455f-af36-804a1e6d6cb6
@@ -196,6 +208,10 @@ scrolling_pro-3
 
 https://github.com/vondas-network/videobeaux/assets/7625379/4a4272de-e074-4e37-8c2d-a282f2d8be57
 
+slight_smear
+
+https://github.com/vondas-network/videobeaux/assets/7625379/a7bca4c5-46b5-4b51-a827-6b8137d0117d
+
 speed
 
 https://github.com/vondas-network/videobeaux/assets/7625379/c27efdb1-ae81-4d8d-a153-de6294b7fedf
@@ -203,6 +219,10 @@ https://github.com/vondas-network/videobeaux/assets/7625379/c27efdb1-ae81-4d8d-a
 stack_2x
 
 https://github.com/vondas-network/videobeaux/assets/7625379/6f244aba-e741-46c9-9863-7fc43527a8d6
+
+steel_wash
+
+https://github.com/vondas-network/videobeaux/assets/7625379/eea99448-9352-48f1-a1ec-b2cac6ad056d
 
 stutter_pro-1
 

@@ -8,6 +8,15 @@ proj_mgmt:
   default_video_file_ext: '.mp4'
   default_audio_file_ext: '.wav'
 
+bad_contrast:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/bad_contrast.mp4'
+
+bad_predator:
+  input_file1: 'inputs/input.mp4'
+  input_file2: 'inputs/input2.mp4'
+  output_file: 'outputs/bad_predator.mp4'  
+
 blur_pix:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/blur_pix.mp4'
@@ -84,7 +93,7 @@ overexposed_stutter:
 
 overlay_img_pro:
   input_file: 'inputs/input.mp4'
-  overlay_image: 'inputs/input.png'
+  overlay_image: 'inputs/input.jpg'
   x_position: "300"
   y_position: "100"
   overlay_width: "200"
@@ -113,16 +122,16 @@ scrolling_pro:
   vertical: "-0.0016"  
   output_file: 'outputs/scrolling_pro.mp4'
 
-bad_contrast:
-  input_file: 'inputs/input.mp4'
-  output_file: 'outputs/bad_contrast.mp4'
-
 silence_x:
   input_file: '/Users/rr/Downloads/trumpbiden2024.webm'
   output_file: 'outputs/output.mp4'
   min_d: 0
   max_d: 1000
   adj: 0
+
+slight_smear:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/slight_smear.mp4'
 
 speed:
   input_file: 'inputs/input.mp4'

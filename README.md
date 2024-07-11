@@ -9,6 +9,7 @@
 | -------- | ------- | 
 | bad_contrast | Apply a bad constrast effect | 
 | blur_pix | Extracting the silence out of a video file | 
+| bpred | Apply bad Predator heat vision effect | 
 | convert | Simple video file convert | 
 | double_cup | Apply the effect of purple drank | 
 | download_yt | Video ripper | 
@@ -27,6 +28,7 @@
 | scrolling_pro | Apply video scrolling effect with definable parameters | 
 | scrolling | Apply static video scrolling effect | 
 | silence_extraction | Extracting the silence out of a video file |  
+| slight_smear | Slightly smearing RGB color space |  
 | speed | Change the video and audio speed of a file |  
 | stack_2x | Stack 2 videos on top of each other keeping the original orientation | 
 | stutter_pro | Apply frame stutter effect with definable parameters | 

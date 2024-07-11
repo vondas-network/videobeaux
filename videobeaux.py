@@ -10,6 +10,7 @@ from pathlib import Path
 
 from programs import (
     bad_contrast,
+    bad_predator,
     blur_pix,
     broken_scroll,
     convert, 
@@ -31,6 +32,7 @@ from programs import (
     reverse,
     scrolling_pro,
     silence_xtraction,    
+    slight_smear,
     speed,
     stack_2x,    
     stutter_pro,
@@ -88,6 +90,24 @@ def blur_pix_video(
     defaults = config['blur_pix']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     blur_pix.blur_pix(**params)
+
+############
+# bad_predator
+############
+@app.command('bad_predator', help='Apply bad Predator heat vision effect to video file.')
+def bad_predator_vb(
+    input_file1: str = typer.Argument(None, help="Input video file 1"), 
+    input_file2: str = typer.Argument(None, help="Input video file 2"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file1": input_file1,
+        "input_file2": input_file2,
+        "output_file": output_file
+    }
+    defaults = config['bad_predator']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    bad_predator.bad_predator(**params)
 
 #############
 # broken_scroll
@@ -435,6 +455,7 @@ def scrolling_pro_video(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     scrolling_pro.scrolling_pro(**params)
 
+
 #####################
 # silence-xtraction
 #####################
@@ -458,6 +479,23 @@ def silence_xtraction_vb(
     defaults = config['silence_x']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     silence_xtraction.silence_xtraction(**params)
+
+
+###########
+# slight_smear
+###########
+@app.command('slight_smear', help='Slightly smearing RGB color space.')
+def slight_smear_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['slight_smear']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    slight_smear.slight_smear(**params)
 
 #############
 # speed

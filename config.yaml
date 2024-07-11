@@ -13,8 +13,7 @@ bad_contrast:
   output_file: 'outputs/bad_contrast.mp4'
 
 bad_predator:
-  input_file1: 'inputs/input.mp4'
-  input_file2: 'inputs/input2.mp4'
+  input_file: 'inputs/input.mp4'
   output_file: 'outputs/bad_predator.mp4'  
 
 blur_pix:
@@ -67,7 +66,7 @@ frame_delay_pro2:
   output_file: 'outputs/frame_delay_pro2.mp4'
 
 light_snow:
-  input_file: 'inputs/input2.mp4'
+  input_file: 'inputs/input.mp4'
   output_file: 'outputs/light_snow.mp4'
 
 looper_pro:

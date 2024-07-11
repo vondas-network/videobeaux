@@ -48,6 +48,10 @@ extract_sound:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/extract_sound.wav'
 
+fever:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/fever.mp4'
+
 frame_delay_pro1:
   input_file: 'inputs/input.mp4'
   # num_of_frames: "10"
@@ -61,6 +65,10 @@ frame_delay_pro2:
   decay: "0.92"
   planes: "7"
   output_file: 'outputs/frame_delay_pro2.mp4'
+
+light_snow:
+  input_file: 'inputs/input2.mp4'
+  output_file: 'outputs/light_snow.mp4'
 
 looper_pro:
   input_file: 'inputs/input.mp4'
@@ -99,6 +107,10 @@ overlay_img_pro:
   overlay_width: "200"
   overlay_height: "100"
   output_file: 'outputs/overlay_img_pro.mp4'
+
+pickle_juice:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/pickle_juice.mp4'
 
 rb_blur:
   input_file: 'inputs/input.mp4'
@@ -142,6 +154,10 @@ stack_2x:
   input_file1: 'inputs/input.mp4'
   input_file2: 'inputs/input.mp4'
   output_file: 'outputs/stack_2x.mp4'
+
+steel_wash:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/steel_wash.mp4'
 
 stutter_pro:
   input_file: 'inputs/input.mp4'

@@ -23,6 +23,7 @@
 | nostalgic_stutter | Apply frame stutter akin to a corrupted file | 
 | overexposed_stutter | Apply a frame stutter and exposing the video like the file is corrupted | 
 | overlay_img_pro | Overlay an image with location & dimension control | 
+| pickle_juice | Apply filter like the video was dipped in pickle juice | 
 | resize | Resizing the dimensions of a video file |
 | reverse | Reverse video file | 
 | scrolling_pro | Apply video scrolling effect with definable parameters | 
@@ -31,6 +32,7 @@
 | slight_smear | Slightly smearing RGB color space |  
 | speed | Change the video and audio speed of a file |  
 | stack_2x | Stack 2 videos on top of each other keeping the original orientation | 
+| steel_wash | Apply steel blue filter to video | 
 | stutter_pro | Apply frame stutter effect with definable parameters | 
 | transraibe | AI-based transcription tool | 
 

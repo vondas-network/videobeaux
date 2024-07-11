@@ -5,7 +5,6 @@ from typing_extensions import Annotated
 import os 
 import calendar
  
-
 from pathlib import Path
 
 from programs import (
@@ -13,13 +12,15 @@ from programs import (
     bad_predator,
     blur_pix,
     broken_scroll,
-    convert, 
+    convert,
     double_cup,
     download_yt,
     extract_frames, 
     extract_sound, 
+    fever,
     frame_delay_pro1,
     frame_delay_pro2,
+    light_snow,
     looper_pro,
     lsd_feedback,
     mirror_delay,
@@ -27,6 +28,7 @@ from programs import (
     num_edits,
     overexposed_stutter,
     overlay_img_pro,
+    pickle_juice,
     rb_blur,
     resize, 
     reverse,
@@ -34,7 +36,8 @@ from programs import (
     silence_xtraction,    
     slight_smear,
     speed,
-    stack_2x,    
+    stack_2x, 
+    steel_wash,   
     stutter_pro,
     transcraibe)
 
@@ -142,6 +145,22 @@ def convert_vb(
     defaults = config['convert']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     convert.convert(**params)
+
+###########
+# fever
+###########
+@app.command('fever', help='Apply fever effect to video.')
+def fever_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['fever']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    fever.fever(**params)   
 
 ###########
 # double_cup
@@ -252,21 +271,21 @@ def frame_delay_pro2_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     frame_delay_pro2.frame_delay_pro2(**params)
 
-################
-# lsd-feedback
-################
-@app.command('lsd-feedback', help='Apply LSD feedback effect to video file.')
-def lsd_feedback_vb(
-    input_file: str = typer.Argument(None, help="Input video file "),
+###########
+# light_snow
+###########
+@app.command('light_snow', help='Slightly smearing RGB color space.')
+def light_snow_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
     output_file: str = typer.Argument(None, help="Output video file")
 ):
     params = { 
-        "input_file": input_file,
+        "input_file": input_file, 
         "output_file": output_file
     }
-    defaults = config['lsd_feedback']
+    defaults = config['light_snow']
     params = {key: params.get(key) or defaults[key] for key in defaults}
-    lsd_feedback.lsd_feedback(**params)
+    light_snow.light_snow(**params)
 
 #################
 # looper-pro
@@ -289,6 +308,22 @@ def scrolling_pro_video(
     defaults = config['looper_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     looper_pro.looper_pro(**params)
+
+################
+# lsd-feedback
+################
+@app.command('lsd-feedback', help='Apply LSD feedback effect to video file.')
+def lsd_feedback_vb(
+    input_file: str = typer.Argument(None, help="Input video file "),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['lsd_feedback']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    lsd_feedback.lsd_feedback(**params)
 
 ################
 # mirror-delay
@@ -358,8 +393,9 @@ def overexposed_stutter_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     overexposed_stutter.overexposed_stutter(**params)
 
+######################
 # overlay_img_pro
-####################
+######################
 @app.command('overlay-img-pro', help='Overlay an image with location & dimension control.')
 def overlay_img_pro_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
@@ -382,6 +418,24 @@ def overlay_img_pro_vb(
     defaults = config['overlay_img_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     overlay_img_pro.overlay_img_pro(**params)
+
+
+
+##########
+# pickle_juice 
+##########
+@app.command('pickle_juice', help='Apply filter like the video was dipped in pickle juice.')
+def pickle_juice_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output video file"),
+):
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['pickle_juice']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    pickle_juice.pickle_juice(**params)
 
 ##########
 # rb_blur 
@@ -480,7 +534,6 @@ def silence_xtraction_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     silence_xtraction.silence_xtraction(**params)
 
-
 ###########
 # slight_smear
 ###########
@@ -530,6 +583,22 @@ def stack_2x_vb(
     defaults = config['stack_2x']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     stack_2x.stack_2x(**params)
+
+############
+# steel_wash
+############
+@app.command('steel_wash', help='Apply steel blue filter to video.')
+def steel_wash_vb(
+    input_file: str = typer.Argument(None, help="Input video file 1"),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['steel_wash']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    steel_wash.steel_wash(**params)
 
 ###############
 # stutter-pro

@@ -10,9 +10,11 @@ from pathlib import Path
 from programs import (
     bad_contrast,
     bad_predator,
+    ball_point_pen,
     blur_pix,
     broken_scroll,
     convert,
+    digital_boss,
     double_cup,
     download_yt,
     extract_frames, 
@@ -20,6 +22,7 @@ from programs import (
     fever,
     frame_delay_pro1,
     frame_delay_pro2,
+    ghostee,
     light_snow,
     looper_pro,
     lsd_feedback,
@@ -39,7 +42,8 @@ from programs import (
     stack_2x, 
     steel_wash,   
     stutter_pro,
-    transcraibe)
+    transcraibe,
+    zapruder)
 
 from utils import load_config
 from datetime import datetime
@@ -77,6 +81,22 @@ def bad_contrast_vb(
     defaults = config['bad_contrast']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     bad_contrast.bad_contrast(**params)
+
+#################
+# ball_point_pen
+#################
+@app.command('ball_point_pen', help='Apply a ball point pen effect.')
+def ball_point_pen_vb(
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['ball_point_pen']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    ball_point_pen.ball_point_pen(**params)
 
 ############
 # blur-pix
@@ -145,6 +165,22 @@ def convert_vb(
     defaults = config['convert']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     convert.convert(**params)
+
+###########
+# digital_boss
+###########
+@app.command('digital_boss', help='Apply fever effect to video.')
+def digital_boss_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['digital_boss']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    digital_boss.digital_boss(**params)   
 
 ###########
 # fever
@@ -270,6 +306,22 @@ def frame_delay_pro2_vb(
     defaults = config['frame_delay_pro2']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     frame_delay_pro2.frame_delay_pro2(**params)
+
+###########
+# ghostee
+###########
+@app.command('ghostee', help='Ghosting effect.')
+def ghostee_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['ghostee']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    ghostee.ghostee(**params)
 
 ###########
 # light_snow
@@ -633,6 +685,22 @@ def transcraibe_vb(
     defaults = config['transcraibe']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     transcraibe.vosk_stt(**params)
+
+###############
+# zapruder
+###############
+@app.command('zapruder', help='Apply zapruder effect to video file.')
+def zapruder_vb(
+    input_file: str = typer.Argument(None, help='Input video file'),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['zapruder']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    zapruder.zapruder(**params)
 
 if __name__ == "__main__":
     app()

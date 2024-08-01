@@ -8,15 +8,18 @@
 | Program | Description |
 | -------- | ------- | 
 | bad_contrast | Apply a bad constrast effect | 
+| ball_point_pen | Apply a ball point pen style effect | 
 | blur_pix | Extracting the silence out of a video file | 
 | bad_predator | Apply bad Predator heat vision effect | 
 | convert | Simple video file convert | 
+| digital_boss | Apply busted gameboy style digital boss effect | 
 | double_cup | Apply the effect of purple drank | 
 | download_yt | Video ripper | 
 | extract_frames | Extract individuals frames from a video file as PNGs | 
 | extract_sound | Extract audio from video file |
 | frame_delay_pro1 | Apply frame delay effect with parameter input | 
 | frame_delay_pro2 | Apply frame delay effect with parameter input | 
+| ghostee | Apply a slight ghost effect | 
 | looper_pro | Apply video looper effect base on frame size & start frame | 
 | lsd_feedback | Apply LSD-like frame delay effect | 
 | mirror_delay | Apply a frame delay plus a mirrored effect | 
@@ -35,6 +38,7 @@
 | steel_wash | Apply steel blue filter to video | 
 | stutter_pro | Apply frame stutter effect with definable parameters | 
 | transraibe | AI-based transcription tool | 
+| zapruder | Apply zapruder-film like effect | 
 
 ## Dependencies
 FFmpeg is required for the project. Install *ffmpeg* using [Homebrew](https://formulae.brew.sh/formula/ffmpeg)
@@ -124,6 +128,10 @@ bad_predator
 
 https://github.com/vondas-network/videobeaux/assets/7625379/0968ad50-cc97-4336-938f-01b47d86a7bd
 
+ball_point_pen
+
+https://github.com/user-attachments/assets/10e703a5-5036-4c3e-83f6-be04476ad089
+
 blur_pix
 
 https://github.com/vondas-network/videobeaux/assets/7625379/65403294-3e34-4ff8-816a-5de7c80c811d
@@ -131,6 +139,10 @@ https://github.com/vondas-network/videobeaux/assets/7625379/65403294-3e34-4ff8-8
 broken_scroll
 
 https://github.com/vondas-network/videobeaux/assets/7625379/4cdebccc-8519-45c6-aded-089db73d20d2
+
+digital_boss
+
+https://github.com/user-attachments/assets/23958066-f384-4801-9d91-5b2df6081a31
 
 double_cup
 
@@ -163,6 +175,10 @@ https://github.com/vondas-network/videobeaux/assets/7625379/acf571e7-7162-413f-8
 frame_delay_pro2-3
 
 https://github.com/vondas-network/videobeaux/assets/7625379/f717d419-687b-4cc3-ac07-64f45c763531
+
+ghostee
+
+https://github.com/user-attachments/assets/87c8b569-5165-485d-ae09-7a8bbbe74051
 
 lsd_feedback
 
@@ -235,3 +251,7 @@ https://github.com/vondas-network/videobeaux/assets/7625379/e6d8c14a-9f20-4365-b
 stutter_pro-3
 
 https://github.com/vondas-network/videobeaux/assets/7625379/864835ba-dc9d-4392-aa77-2cc062e2b700
+
+zapruder
+
+https://github.com/user-attachments/assets/cad79483-b21f-43b8-a1cd-91ed8406574a

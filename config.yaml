@@ -16,6 +16,10 @@ bad_predator:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/bad_predator.mp4'  
 
+ball_point_pen:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/ball_point_pen.mp4'  
+
 blur_pix:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/blur_pix.mp4'
@@ -28,6 +32,10 @@ convert:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/output.mkv'
   format: "avi"
+
+digital_boss:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/digital_boss.mp4'
 
 double_cup:
   input_file: 'inputs/input.mp4'
@@ -64,6 +72,10 @@ frame_delay_pro2:
   decay: "0.92"
   planes: "7"
   output_file: 'outputs/frame_delay_pro2.mp4'
+
+ghostee:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/ghostee.mp4'
 
 light_snow:
   input_file: 'inputs/input.mp4'
@@ -166,3 +178,7 @@ stutter_pro:
 transcraibe:
   input_file: '/Users/rr/Downloads/trumpbiden2024.webm'
   stt_model: 'vosk-models/vosk-model-en-us-0.42-gigaspeech'
+
+zapruder:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/zapruder.mp4'

@@ -5,6 +5,9 @@
 <p align="center"><em>Your friendly multilateral video toolkit built for artists by artists. It's your best friend.</em></p> 
 
 ## Available Programs
+
+An overview of each program can be find in this [YouTube playlist](https://www.youtube.com/watch?v=7i-WaDgBkcI&list=PLmyETqg8KgDcwV3-JnGoAiQyjR764sBI_).
+
 | Program | Description |
 | -------- | ------- | 
 | bad_contrast | Apply a bad constrast effect | 

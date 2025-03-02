@@ -11,4 +11,4 @@ def overlay_img_pro(input_file, overlay_image, x_position, y_position, overlay_h
         output_file 
     ]
     run_ffmpeg_command(command)
-    print(f"Video processed with blur_pix and file is {output_file}")
+    print(f"Video processed with overaly_img_pro and file is {output_file}")

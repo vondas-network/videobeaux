@@ -10,4 +10,4 @@ def bad_contrast(input_file, output_file):
         output_file
     ]
     run_ffmpeg_command(command)
-    print(f"Video processed with double_cup and file is {output_file}")
+    print(f"Video processed with bad_contrast and file is {output_file}")

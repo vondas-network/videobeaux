@@ -69,7 +69,7 @@ app = typer.Typer()
 #################
 # bad_contrast
 #################
-@app.command('bad-contrast', help='Apply a bad constrast effect.')
+@app.command('bad_contrast', help='Apply a bad constrast effect.')
 def bad_contrast_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
     output_file: str = typer.Argument(None, help="Output video file")
@@ -97,23 +97,6 @@ def ball_point_pen_vb(
     defaults = config['ball_point_pen']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     ball_point_pen.ball_point_pen(**params)
-
-############
-# blur-pix
-############
-@app.command('blur-pix', help='Apply blur pix effect to video file.')
-def blur_pix_video(
-    input_file: str = typer.Argument(None, help="Input video file"), 
-    output_file: str = typer.Argument(None, help="Output video file")
-):
-    params = { 
-        "input_file": input_file,
-        "output_file": output_file
-    }
-    defaults = config['blur_pix']
-    params = {key: params.get(key) or defaults[key] for key in defaults}
-    blur_pix.blur_pix(**params)
-
 ############
 # bad_predator
 ############
@@ -132,10 +115,26 @@ def bad_predator_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     bad_predator.bad_predator(**params)
 
+############
+# blur_pix
+############
+@app.command('blur_pix', help='Apply blur pix effect to video file.')
+def blur_pix_video(
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['blur_pix']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    blur_pix.blur_pix(**params)
+
 #############
 # broken_scroll
 #############
-@app.command('broken-scroll', help='Apply broken_scroll effect to video file.')
+@app.command('broken_scroll', help='Apply broken_scroll effect to video file.')
 def broken_scroll_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
     output_file: str = typer.Argument(None, help="Output video file")
@@ -201,7 +200,7 @@ def fever_vb(
 ###########
 # double_cup
 ###########
-@app.command('double-cup', help='Apply the effect of purple drank.')
+@app.command('double_cup', help='Apply the effect of purple drank.')
 def double_cup_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
     output_file: str = typer.Argument(None, help="Output video file")
@@ -217,7 +216,7 @@ def double_cup_vb(
 ##########
 # download_yt : yt-dlp 
 ##########
-@app.command('download-yt', help='Downloads the provided link with yt-dlp')
+@app.command('download_yt', help='Downloads the provided link with yt-dlp')
 def yt_dlp_vb(
     yt_url: str = typer.Argument(None, help="URL of the YT video"),
     output_file: str = typer.Argument(None, help="Width of the output video"),
@@ -233,9 +232,9 @@ def yt_dlp_vb(
     download_yt.download_yt(**params)
 
 ##################
-# extract-frames
+# extract_frames
 ##################
-@app.command('extract-frames', help='Extract frames from a video at the specified frame rate.')
+@app.command('extract_frames', help='Extract frames from a video at the specified frame rate.')
 def extract_frames_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
     output_file: str = typer.Argument(None, help="Output folder for frames"),
@@ -253,7 +252,7 @@ def extract_frames_vb(
 #################
 # extract-sound
 #################
-@app.command('extract-sound', help='Extract audio from video file.')
+@app.command('extract_sound', help='Extract audio from video file.')
 def extract_sound_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
     output_file: str = typer.Argument(None, help="Output audio file")
@@ -268,9 +267,9 @@ def extract_sound_vb(
     extract_sound.extract_sound(**params)
 
 ####################
-# frame-delay-pro1
+# frame_delay_pro1
 ####################
-@app.command('frame-delay-pro1', help='Apply the pro1 frame delay to video file.')
+@app.command('frame_delay_pro1', help='Apply the pro1 frame delay to video file.')
 def frame_delay_pro1_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
     num_of_frames: int = typer.Argument(None, help="Input weight for frame delay"),    
@@ -288,9 +287,9 @@ def frame_delay_pro1_vb(
     frame_delay_pro1.frame_delay_pro1(**params)
 
 ####################
-# frame-delay-pro2
+# frame_delay_pro2
 ####################
-@app.command('frame-delay-pro2', help='Apply the pro2 frame delay to video file.')
+@app.command('frame_delay_pro2', help='Apply the pro2 frame delay to video file.')
 def frame_delay_pro2_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
     decay: int = typer.Argument(None, help=""),    
@@ -340,9 +339,9 @@ def light_snow_vb(
     light_snow.light_snow(**params)
 
 #################
-# looper-pro
+# looper_pro
 #################
-@app.command('looper-pro', help='Apply video looper effect base on frame size & start frame.')
+@app.command('looper_pro', help='Apply video looper effect base on frame size & start frame.')
 def scrolling_pro_video(
     input_file: str = typer.Argument(None, help="Input video file"), 
     loop_count: str = typer.Argument(None, help="Number of video loops"), 
@@ -362,9 +361,9 @@ def scrolling_pro_video(
     looper_pro.looper_pro(**params)
 
 ################
-# lsd-feedback
+# lsd_feedback
 ################
-@app.command('lsd-feedback', help='Apply LSD feedback effect to video file.')
+@app.command('lsd_feedback', help='Apply LSD feedback effect to video file.')
 def lsd_feedback_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
     output_file: str = typer.Argument(None, help="Output video file")
@@ -378,9 +377,9 @@ def lsd_feedback_vb(
     lsd_feedback.lsd_feedback(**params)
 
 ################
-# mirror-delay
+# mirror_delay
 ################
-@app.command('mirror-delay', help='Apply mirrored delay effect to video file.')
+@app.command('mirror_delay', help='Apply mirrored delay effect to video file.')
 def mirror_delay_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
     output_file: str = typer.Argument(None, help="Output video file")
@@ -395,9 +394,9 @@ def mirror_delay_vb(
     mirror_delay.mirror_delay(**params)
 
 #####################
-# nostalgic-stutter
+# nostalgic_stutter
 #####################
-@app.command('nostalgic-stutter', help='Apply nostaglic stutter effect to video file.')
+@app.command('nostalgic_stutter', help='Apply nostaglic stutter effect to video file.')
 def nostalgic_stutter_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
     output_file: str = typer.Argument(None, help="Output video file")
@@ -411,9 +410,9 @@ def nostalgic_stutter_vb(
     nostalgic_stutter.nostalgic_stutter(**params)
 
 ################
-# num-edits
+# num_edits
 ################
-@app.command('num-edits', help='Apply LSD feedback effect to video file.')
+@app.command('num_edits', help='Apply LSD feedback effect to video file.')
 def num_edits_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
     count: str = typer.Argument(None, help="Input video file "),
@@ -429,9 +428,9 @@ def num_edits_vb(
     num_edits.num_edits(**params)
 
 ######################
-# overexposed-stutter
+# overexposed_stutter
 ######################
-@app.command('overexposed-stutter', help='Apply overexposed stutter effect to video file.')
+@app.command('overexposed_stutter', help='Apply overexposed stutter effect to video file.')
 def overexposed_stutter_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
     output_file: str = typer.Argument(None, help="Output video file")
@@ -448,7 +447,7 @@ def overexposed_stutter_vb(
 ######################
 # overlay_img_pro
 ######################
-@app.command('overlay-img-pro', help='Overlay an image with location & dimension control.')
+@app.command('overlay_img_pro', help='Overlay an image with location & dimension control.')
 def overlay_img_pro_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
     overlay_image: int = typer.Argument(None, help="Image file"),    
@@ -492,7 +491,7 @@ def pickle_juice_vb(
 ##########
 # rb_blur 
 ##########
-@app.command('rb-blur', help='Resize a video to the given width and height.')
+@app.command('rb_blur', help='Resize a video to the given width and height.')
 def rb_blur_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
     output_file: str = typer.Argument(None, help="Output video file"),
@@ -542,9 +541,9 @@ def reverse_vb(
     reverse.reverse(**params)
 
 #################
-# scrolling-pro
+# scrolling_pro
 #################
-@app.command('scrolling-pro', help='Apply scrolling pro effect to video file.')
+@app.command('scrolling_pro', help='Apply scrolling pro effect to video file.')
 def scrolling_pro_video(
     input_file: str = typer.Argument(None, help="Input video file"), 
     horizontal: str = typer.Argument(None, help="Horizontal scroll parameter"), 
@@ -563,9 +562,9 @@ def scrolling_pro_video(
 
 
 #####################
-# silence-xtraction
+# silence_xtraction
 #####################
-@app.command('silence-xtraction', help="Stitches togehter video chunks that have no discernable words." +
+@app.command('silence_xtraction', help="Stitches togehter video chunks that have no discernable words." +
               "This does NOT use audio analysis, but instead identifes the presence of a 'word' using the .srt transcription file")
 def silence_xtraction_vb(
     min_d: int = typer.Argument(None, help="Minimum duration of a chunk of silence."),
@@ -582,7 +581,7 @@ def silence_xtraction_vb(
         "output_file": output_file,
     }
 
-    defaults = config['silence_x']
+    defaults = config['silence_xtraction']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     silence_xtraction.silence_xtraction(**params)
 
@@ -619,9 +618,9 @@ def speed_vb(
     speed.speed(**params)
 
 ############
-# stack-2x
+# stack_2x
 ############
-@app.command('stack-2x', help='Stack 2 videos on top of each other keeping the original orientation.')
+@app.command('stack_2x', help='Stack 2 videos on top of each other keeping the original orientation.')
 def stack_2x_vb(
     input_file1: str = typer.Argument(None, help="Input video file 1"),
     input_file2: str = typer.Argument(None, help="Input video file 2"),
@@ -653,9 +652,9 @@ def steel_wash_vb(
     steel_wash.steel_wash(**params)
 
 ###############
-# stutter-pro
+# stutter_pro
 ###############
-@app.command('stutter-pro', help='Apply stutter pro effect to video file.')
+@app.command('stutter_pro', help='Apply stutter pro effect to video file.')
 def stutter_pro_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
     stutter: str = typer.Argument(None, help="Frame stutter parameter"), 

@@ -145,7 +145,7 @@ scrolling_pro:
   vertical: "-0.0016"  
   output_file: 'outputs/scrolling_pro.mp4'
 
-silence_x:
+silence_xtraction:
   input_file: '/Users/rr/Downloads/trumpbiden2024.webm'
   output_file: 'outputs/output.mp4'
   min_d: 0

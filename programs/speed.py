@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def speed(input_file, speed_factor, output_file):
+def speed(input_file, output_file, speed_factor):
     command = [
         "ffmpeg",
         "-i", input_file,

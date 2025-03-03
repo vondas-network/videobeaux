@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def stutter_pro(input_file, stutter, output_file):
+def stutter_pro(input_file, output_file, stutter):
     command = [
         "ffmpeg",
         "-y",

@@ -1,7 +1,7 @@
 import sys
 from videogrep import parse_transcript, create_supercut
 
-def silence_xtraction(min_d, max_d, adj, input_file, output_file):
+def silence_xtraction(input_file, output_file, min_d, max_d, adj):
     # the min and max duration of silences to extract
     min_duration = min_d #0.1
     max_duration = max_d #1000.0

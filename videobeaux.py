@@ -1,11 +1,8 @@
-import typer
-from typing_extensions import Annotated
-
-# NEW
 import os 
+import typer
 import calendar
- 
 from pathlib import Path
+from typing_extensions import Annotated 
 
 from programs import (
     bad_contrast,
@@ -66,9 +63,9 @@ ct = now.strftime("%Y-%m-%d_%H-%M-%S")
 
 app = typer.Typer()
 
-#################
+######################
 # bad_contrast
-#################
+######################
 @app.command('bad_contrast', help='Apply a bad constrast effect.')
 def bad_contrast_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
@@ -82,9 +79,9 @@ def bad_contrast_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     bad_contrast.bad_contrast(**params)
 
-#################
+######################
 # ball_point_pen
-#################
+######################
 @app.command('ball_point_pen', help='Apply a ball point pen effect.')
 def ball_point_pen_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
@@ -97,27 +94,26 @@ def ball_point_pen_vb(
     defaults = config['ball_point_pen']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     ball_point_pen.ball_point_pen(**params)
-############
+
+######################
 # bad_predator
-############
+######################
 @app.command('bad_predator', help='Apply bad Predator heat vision effect to video file.')
 def bad_predator_vb(
-    input_file1: str = typer.Argument(None, help="Input video file 1"), 
-    input_file2: str = typer.Argument(None, help="Input video file 2"), 
+    input_file: str = typer.Argument(None, help="Input video file"), 
     output_file: str = typer.Argument(None, help="Output video file")
 ):
     params = { 
-        "input_file1": input_file1,
-        "input_file2": input_file2,
+        "input_file1": input_file,
         "output_file": output_file
     }
     defaults = config['bad_predator']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     bad_predator.bad_predator(**params)
 
-############
+######################
 # blur_pix
-############
+######################
 @app.command('blur_pix', help='Apply blur pix effect to video file.')
 def blur_pix_video(
     input_file: str = typer.Argument(None, help="Input video file"), 
@@ -131,9 +127,9 @@ def blur_pix_video(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     blur_pix.blur_pix(**params)
 
-#############
+######################
 # broken_scroll
-#############
+######################
 @app.command('broken_scroll', help='Apply broken_scroll effect to video file.')
 def broken_scroll_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
@@ -147,9 +143,9 @@ def broken_scroll_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     broken_scroll.broken_scroll(**params)
 
-###########
+######################
 # convert
-###########
+######################
 @app.command('convert', help='Convert a video to a different format.')
 def convert_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -165,9 +161,9 @@ def convert_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     convert.convert(**params)
 
-###########
+######################
 # digital_boss
-###########
+######################
 @app.command('digital_boss', help='Apply fever effect to video.')
 def digital_boss_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -181,9 +177,9 @@ def digital_boss_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     digital_boss.digital_boss(**params)   
 
-###########
+######################
 # fever
-###########
+######################
 @app.command('fever', help='Apply fever effect to video.')
 def fever_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -197,9 +193,9 @@ def fever_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     fever.fever(**params)   
 
-###########
+######################
 # double_cup
-###########
+######################
 @app.command('double_cup', help='Apply the effect of purple drank.')
 def double_cup_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -213,9 +209,9 @@ def double_cup_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     double_cup.double_cup(**params)    
 
-##########
+######################
 # download_yt : yt-dlp 
-##########
+######################
 @app.command('download_yt', help='Downloads the provided link with yt-dlp')
 def yt_dlp_vb(
     yt_url: str = typer.Argument(None, help="URL of the YT video"),
@@ -231,9 +227,9 @@ def yt_dlp_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     download_yt.download_yt(**params)
 
-##################
+######################
 # extract_frames
-##################
+######################
 @app.command('extract_frames', help='Extract frames from a video at the specified frame rate.')
 def extract_frames_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -249,9 +245,9 @@ def extract_frames_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     extract_frames.extract_frames(**params)
 
-#################
-# extract-sound
-#################
+######################
+# extract_sound
+######################
 @app.command('extract_sound', help='Extract audio from video file.')
 def extract_sound_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -266,49 +262,49 @@ def extract_sound_vb(
     print(params)
     extract_sound.extract_sound(**params)
 
-####################
+######################
 # frame_delay_pro1
-####################
+######################
 @app.command('frame_delay_pro1', help='Apply the pro1 frame delay to video file.')
 def frame_delay_pro1_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
+    output_file: str = typer.Argument(None, help="Output video file"),
     num_of_frames: int = typer.Argument(None, help="Input weight for frame delay"),    
-    frame_weights: str = typer.Argument(None, help="Input weight for frame delay"),    
-    output_file: str = typer.Argument(None, help="Output video file")
+    frame_weights: str = typer.Argument(None, help="Input weight for frame delay")
 ):
     params = { 
         "input_file": input_file,
+        "output_file": output_file,
         "num_of_frames": num_of_frames,
-        "frame_weights": frame_weights,
-        "output_file": output_file
+        "frame_weights": frame_weights
     }
     defaults = config['frame_delay_pro1']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     frame_delay_pro1.frame_delay_pro1(**params)
 
-####################
+######################
 # frame_delay_pro2
-####################
+######################
 @app.command('frame_delay_pro2', help='Apply the pro2 frame delay to video file.')
 def frame_delay_pro2_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
+    output_file: str = typer.Argument(None, help="Output video file"),
     decay: int = typer.Argument(None, help=""),    
-    planes: str = typer.Argument(None, help="Input weight for frame delay"),    
-    output_file: str = typer.Argument(None, help="Output video file")
+    planes: str = typer.Argument(None, help="Input weight for frame delay")
 ):
     params = { 
         "input_file": input_file,
+        "output_file": output_file,
         "decay": decay,
-        "planes": planes,
-        "output_file": output_file
+        "planes": planes
     }
     defaults = config['frame_delay_pro2']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     frame_delay_pro2.frame_delay_pro2(**params)
 
-###########
+######################
 # ghostee
-###########
+######################
 @app.command('ghostee', help='Ghosting effect.')
 def ghostee_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -322,9 +318,9 @@ def ghostee_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     ghostee.ghostee(**params)
 
-###########
+######################
 # light_snow
-###########
+######################
 @app.command('light_snow', help='Slightly smearing RGB color space.')
 def light_snow_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -338,31 +334,31 @@ def light_snow_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     light_snow.light_snow(**params)
 
-#################
+######################
 # looper_pro
-#################
+######################
 @app.command('looper_pro', help='Apply video looper effect base on frame size & start frame.')
-def scrolling_pro_video(
+def looper_pro_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file"),
     loop_count: str = typer.Argument(None, help="Number of video loops"), 
     size_in_frames: str = typer.Argument(None, help="Size of loop in frames"), 
-    start_frame: str = typer.Argument(None, help="Starting frame of loop"), 
-    output_file: str = typer.Argument(None, help="Output video file")
+    start_frame: str = typer.Argument(None, help="Starting frame of loop")
 ):
     params = { 
         "input_file": input_file,
+        "output_file": output_file,
         "loop_count": loop_count,
         "size_in_frames": size_in_frames,
-        "start_frame": start_frame,
-        "output_file": output_file
+        "start_frame": start_frame
     }
     defaults = config['looper_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     looper_pro.looper_pro(**params)
 
-################
+######################
 # lsd_feedback
-################
+######################
 @app.command('lsd_feedback', help='Apply LSD feedback effect to video file.')
 def lsd_feedback_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
@@ -376,9 +372,9 @@ def lsd_feedback_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     lsd_feedback.lsd_feedback(**params)
 
-################
+######################
 # mirror_delay
-################
+######################
 @app.command('mirror_delay', help='Apply mirrored delay effect to video file.')
 def mirror_delay_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
@@ -409,19 +405,19 @@ def nostalgic_stutter_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     nostalgic_stutter.nostalgic_stutter(**params)
 
-################
+######################
 # num_edits
-################
-@app.command('num_edits', help='Apply LSD feedback effect to video file.')
+######################
+@app.command('num_edits', help='Create a number of edits from a source file.')
 def num_edits_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
-    count: str = typer.Argument(None, help="Input video file "),
-    output_file: str = typer.Argument(None, help="Input video file ")
+    output_file: str = typer.Argument(None, help="Input video file "),
+    count: str = typer.Argument(None, help="Input video file ")
 ):
     params = { 
         "input_file": input_file,
-        "count": count,
-        "output_file": output_file
+        "output_file": output_file,
+        "count": count
     }
     defaults = config['num_edits']
     params = {key: params.get(key) or defaults[key] for key in defaults}
@@ -450,31 +446,29 @@ def overexposed_stutter_vb(
 @app.command('overlay_img_pro', help='Overlay an image with location & dimension control.')
 def overlay_img_pro_vb(
     input_file: str = typer.Argument(None, help="Input video file "),
+    output_file: str = typer.Argument(None, help="Output video file"),
     overlay_image: int = typer.Argument(None, help="Image file"),    
     x_position: str = typer.Argument(None, help="X position of the image file"),    
     y_position: str = typer.Argument(None, help="Y position of the image file"),
     overlay_width: str = typer.Argument(None, help="Overlay image width"),
-    overlay_height: str = typer.Argument(None, help="Overlay image height"),
-    output_file: str = typer.Argument(None, help="Output video file")
+    overlay_height: str = typer.Argument(None, help="Overlay image height")
 ):
     params = { 
         "input_file": input_file,
+        "output_file": output_file,
         "overlay_image": overlay_image,
         "x_position": x_position,
         "y_position": y_position,
         "overlay_width": overlay_width,
         "overlay_height": overlay_height,
-        "output_file": output_file
     }
     defaults = config['overlay_img_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     overlay_img_pro.overlay_img_pro(**params)
 
-
-
-##########
+######################
 # pickle_juice 
-##########
+######################
 @app.command('pickle_juice', help='Apply filter like the video was dipped in pickle juice.')
 def pickle_juice_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -488,9 +482,9 @@ def pickle_juice_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     pickle_juice.pickle_juice(**params)
 
-##########
+######################
 # rb_blur 
-##########
+######################
 @app.command('rb_blur', help='Resize a video to the given width and height.')
 def rb_blur_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -504,9 +498,9 @@ def rb_blur_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     rb_blur.rb_blur(**params)
 
-##########
+######################
 # resize 
-##########
+######################
 @app.command('resize', help='Resize a video to the given width and height.')
 def resize_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -524,9 +518,9 @@ def resize_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     resize.resize(**params)
 
-###########
+######################
 # reverse
-###########
+######################
 @app.command('reverse', help='Reverse video file.')
 def reverse_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -540,54 +534,54 @@ def reverse_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     reverse.reverse(**params)
 
-#################
+######################
 # scrolling_pro
-#################
+######################
 @app.command('scrolling_pro', help='Apply scrolling pro effect to video file.')
-def scrolling_pro_video(
+def scrolling_pro_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file"),    
     horizontal: str = typer.Argument(None, help="Horizontal scroll parameter"), 
-    vertical: str = typer.Argument(None, help="Vertical scroll parameter"), 
-    output_file: str = typer.Argument(None, help="Output video file")
+    vertical: str = typer.Argument(None, help="Vertical scroll parameter")
 ):
     params = { 
         "input_file": input_file,
+        "output_file": output_file,
         "horizontal": horizontal,
-        "vertical": vertical,
-        "output_file": output_file
+        "vertical": vertical
     }
     defaults = config['scrolling_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
-    scrolling_pro.scrolling_pro(**params)
+    scrolling_pro.scrolling_vb(**params)
 
 
-#####################
+######################
 # silence_xtraction
-#####################
+######################
 @app.command('silence_xtraction', help="Stitches togehter video chunks that have no discernable words." +
               "This does NOT use audio analysis, but instead identifes the presence of a 'word' using the .srt transcription file")
 def silence_xtraction_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output video file"),
     min_d: int = typer.Argument(None, help="Minimum duration of a chunk of silence."),
     max_d: int = typer.Argument(None, help="Maximum duration of a chunk of silence."),
-    adj: int = typer.Argument(None, help="Adjustment value"),
-    input_file: str = typer.Argument(None, help="Input video file"),
-    output_file: str = typer.Argument(None, help="Output video file")
+    adj: int = typer.Argument(None, help="Adjustment value")
 ):
     params = { 
-        "min_d": min_d,
-        "max_d": max_d,
-        "adj": adj,
         "input_file": input_file, 
         "output_file": output_file,
+        "min_d": min_d,
+        "max_d": max_d,
+        "adj": adj
     }
 
     defaults = config['silence_xtraction']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     silence_xtraction.silence_xtraction(**params)
 
-###########
+######################
 # slight_smear
-###########
+######################
 @app.command('slight_smear', help='Slightly smearing RGB color space.')
 def slight_smear_vb(
     input_file: str = typer.Argument(None, help="Input video file"),
@@ -601,25 +595,27 @@ def slight_smear_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     slight_smear.slight_smear(**params)
 
-#############
+######################
 # speed
-#############
+######################
 @app.command('speed', help='Apply speed effect to video file.')
 def speed_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
-    output_file: str = typer.Argument(None, help="Output video file")
+    output_file: str = typer.Argument(None, help="Output video file"),
+    speed_factor: str = typer.Argument(None, help="Playback speed")
 ):
     params = { 
         "input_file": input_file,
-        "output_file": output_file
+        "output_file": output_file,
+        "speed_factor": speed_factor
     }
     defaults = config['speed']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     speed.speed(**params)
 
-############
+######################
 # stack_2x
-############
+######################
 @app.command('stack_2x', help='Stack 2 videos on top of each other keeping the original orientation.')
 def stack_2x_vb(
     input_file1: str = typer.Argument(None, help="Input video file 1"),
@@ -635,9 +631,9 @@ def stack_2x_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     stack_2x.stack_2x(**params)
 
-############
+######################
 # steel_wash
-############
+######################
 @app.command('steel_wash', help='Apply steel blue filter to video.')
 def steel_wash_vb(
     input_file: str = typer.Argument(None, help="Input video file 1"),
@@ -651,27 +647,27 @@ def steel_wash_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     steel_wash.steel_wash(**params)
 
-###############
+######################
 # stutter_pro
-###############
+######################
 @app.command('stutter_pro', help='Apply stutter pro effect to video file.')
 def stutter_pro_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
-    stutter: str = typer.Argument(None, help="Frame stutter parameter"), 
-    output_file: str = typer.Argument(None, help="Output video file")
+    output_file: str = typer.Argument(None, help="Output video file"),
+    stutter: str = typer.Argument(None, help="Frame stutter parameter")
 ):
     params = { 
         "input_file": input_file,
-        "stutter": stutter,
-        "output_file": output_file
+        "output_file": output_file,
+        "stutter": stutter
     }
     defaults = config['stutter_pro']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     stutter_pro.stutter_pro(**params)
 
-###############
+######################
 # transcraibe
-###############
+######################
 @app.command('transcraibe', help='Transcribes the video with ai (vosk) - transcrAIbe')
 def transcraibe_vb(
     input_file: str = typer.Argument(None, help='Video file you would like to transcribe.'),
@@ -685,9 +681,9 @@ def transcraibe_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     transcraibe.vosk_stt(**params)
 
-###############
+######################
 # zapruder
-###############
+######################
 @app.command('zapruder', help='Apply zapruder effect to video file.')
 def zapruder_vb(
     input_file: str = typer.Argument(None, help='Input video file'),

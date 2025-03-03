@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def scrolling_pro(input_file, horizontal, vertical, output_file):
+def scrolling_pro(input_file, output_file, horizontal, vertical):
     command = [
         "ffmpeg",
         "-y",

@@ -3,7 +3,7 @@ from utils.ffprobe_operations import run_ffprobe_command
 import time
 
 
-def num_edits(input_file, count, output_file):
+def num_edits(input_file, output_file, count):
     command = [
         "ffprobe",
         "-v", "error",

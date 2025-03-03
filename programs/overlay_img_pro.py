@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def overlay_img_pro(input_file, overlay_image, x_position, y_position, overlay_height, overlay_width, output_file):
+def overlay_img_pro(input_file, output_file, overlay_image, x_position, y_position, overlay_height, overlay_width):
     command = [
         "ffmpeg",
         "-y",

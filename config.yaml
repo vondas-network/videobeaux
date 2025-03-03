@@ -61,17 +61,17 @@ fever:
 
 frame_delay_pro1:
   input_file: 'inputs/input.mp4'
+  output_file: 'outputs/frame_delay_pro1.mp4'
   # num_of_frames: "10"
   # frame_weights: -2 1 -1 -3 4 1 -3 1 4 1
   num_of_frames: "13"
   frame_weights: -2 1 -1 -3 4 1 -3 1 4 1 3 5 -4
-  output_file: 'outputs/frame_delay_pro1.mp4'
 
 frame_delay_pro2:
   input_file: 'inputs/input.mp4'
+  output_file: 'outputs/frame_delay_pro2.mp4'
   decay: "0.92"
   planes: "7"
-  output_file: 'outputs/frame_delay_pro2.mp4'
 
 ghostee:
   input_file: 'inputs/input.mp4'
@@ -83,15 +83,14 @@ light_snow:
 
 looper_pro:
   input_file: 'inputs/input.mp4'
+  output_file: 'outputs/looper_pro.mp4'
   loop_count: '3'
   size_in_frames: '20'
   start_frame: '10'
-  output_file: 'outputs/looper_pro.mp4'
 
 lsd_feedback:
   input_file: 'inputs/input.mp4'
-  #frame_weights: 1 1 -3 2 1 1 -3 1
-  output_file: 'outputs/lsd_feedback.mp4'
+  output_file: 'outputs/lsd_feedback.mp4'  
 
 mirror_delay:
   input_file: 'inputs/input.mp4'
@@ -103,8 +102,8 @@ nostalgic_stutter:
 
 num_edits:
   input_file: 'inputs/input.mp4'
-  count: "1"
   output_file: 'outputs/output.mp4'
+  count: "1"
 
 overexposed_stutter:
   input_file: 'inputs/input.mp4'
@@ -112,12 +111,12 @@ overexposed_stutter:
 
 overlay_img_pro:
   input_file: 'inputs/input.mp4'
+  output_file: 'outputs/overlay_img_pro.mp4'
   overlay_image: 'inputs/input.jpg'
   x_position: "300"
   y_position: "100"
   overlay_width: "200"
   overlay_height: "100"
-  output_file: 'outputs/overlay_img_pro.mp4'
 
 pickle_juice:
   input_file: 'inputs/input.mp4'
@@ -139,11 +138,9 @@ reverse:
 
 scrolling_pro:
   input_file: 'inputs/input.mp4'
-  # horizontal: "0.003"
-  # vertical: "0.006"
+  output_file: 'outputs/scrolling_pro.mp4'
   horizontal: "-0.0013"
   vertical: "-0.0016"  
-  output_file: 'outputs/scrolling_pro.mp4'
 
 silence_xtraction:
   input_file: '/Users/rr/Downloads/trumpbiden2024.webm'
@@ -158,8 +155,8 @@ slight_smear:
 
 speed:
   input_file: 'inputs/input.mp4'
-  speed_factor: 1.5
   output_file: 'outputs/speed.mp4'  
+  speed_factor: 1.5
 
 stack_2x:
   input_file1: 'inputs/input.mp4'
@@ -172,8 +169,8 @@ steel_wash:
 
 stutter_pro:
   input_file: 'inputs/input.mp4'
-  stutter: "233.4"
   output_file: 'outputs/stutter_pro.mp4'
+  stutter: "233.4"
 
 transcraibe:
   input_file: '/Users/rr/Downloads/trumpbiden2024.webm'

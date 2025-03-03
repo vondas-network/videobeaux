@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def looper_pro(input_file, loop_count, size_in_frames, start_frame, output_file):
+def looper_pro(input_file, output_file, loop_count, size_in_frames, start_frame):
     command = [
         "ffmpeg",
         "-i", input_file,

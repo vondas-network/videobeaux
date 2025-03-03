@@ -1,6 +1,6 @@
 from utils.ffmpeg_operations import run_ffmpeg_command
 
-def frame_delay_pro2(input_file, decay, planes, output_file):
+def frame_delay_pro2(input_file, output_file, decay, planes):
     command = [
         "ffmpeg",
         "-y",

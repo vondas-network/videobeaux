@@ -115,8 +115,8 @@ Usage: videobeaux.py convert-video [OPTIONS]
   Convert a video to a different format.
 
 Options:
-  --input-file TEXT   Input video file
-  --output-file TEXT  Output video file
+  --input_file TEXT   Input video file
+  --output_file TEXT  Output video file
   --format TEXT       Format of the output video
   --help              Show this message and exit.
 ```
@@ -258,3 +258,4 @@ https://github.com/vondas-network/videobeaux/assets/7625379/864835ba-dc9d-4392-a
 zapruder
 
 https://github.com/user-attachments/assets/cad79483-b21f-43b8-a1cd-91ed8406574a
+

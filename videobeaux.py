@@ -5,9 +5,11 @@ from pathlib import Path
 from typing_extensions import Annotated 
 
 from programs import (
+    bad_animation,
     bad_contrast,
     bad_predator,
     ball_point_pen,
+    septic,
     blur_pix,
     broken_scroll,
     convert,
@@ -30,16 +32,25 @@ from programs import (
     overlay_img_pro,
     pickle_juice,
     rb_blur,
+    recalled_sensor,
+    repainting,
     resize, 
     reverse,
     scrolling_pro,
     silence_xtraction,    
     slight_smear,
+    smudge,
+    soapblind,
     speed,
+    splitting,
     stack_2x, 
     steel_wash,   
     stutter_pro,
+    t1000,
     transcraibe,
+    twociz,
+    wbflare,
+    xrgb,
     zapruder)
 
 from utils import load_config
@@ -62,6 +73,22 @@ now = datetime.now()
 ct = now.strftime("%Y-%m-%d_%H-%M-%S")
 
 app = typer.Typer()
+
+######################
+# bad_animation
+######################
+@app.command('bad_animation', help='Apply a bad animation effect.')
+def bad_animation_vb(
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['bad_animation']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    bad_animation.bad_animation(**params)
 
 ######################
 # bad_contrast
@@ -115,7 +142,7 @@ def bad_predator_vb(
 # blur_pix
 ######################
 @app.command('blur_pix', help='Apply blur pix effect to video file.')
-def blur_pix_video(
+def blur_pix_vb(
     input_file: str = typer.Argument(None, help="Input video file"), 
     output_file: str = typer.Argument(None, help="Output video file")
 ):
@@ -499,6 +526,38 @@ def rb_blur_vb(
     rb_blur.rb_blur(**params)
 
 ######################
+# recalled_sensor
+######################
+@app.command('recalled_sensor', help='Applies xrgb filter')
+def recalled_sensor_vb(
+    input_file: str = typer.Argument(None, help='Video file you would to filter'),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['recalled_sensor']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    recalled_sensor.recalled_sensor(**params)
+
+######################
+# repainting 
+######################
+@app.command('repainting', help='Resize a video to the given width and height.')
+def repainting_vb(
+    input_file: str = typer.Argument(None, help="Input video file"),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file, 
+        "output_file": output_file
+    }
+    defaults = config['repainting']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    repainting.repainting(**params)
+
+######################
 # resize 
 ######################
 @app.command('resize', help='Resize a video to the given width and height.')
@@ -554,6 +613,21 @@ def scrolling_pro_vb(
     params = {key: params.get(key) or defaults[key] for key in defaults}
     scrolling_pro.scrolling_vb(**params)
 
+######################
+# septic
+######################
+@app.command('septic', help='Apply septic effect to video file.')
+def septic_vb(
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['septic']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    septic.septic(**params)
 
 ######################
 # silence_xtraction
@@ -614,6 +688,54 @@ def speed_vb(
     speed.speed(**params)
 
 ######################
+# smudge
+######################
+@app.command('smudge', help='Apply smudge effect to video file.')
+def smudge_vb(
+    input_file: str = typer.Argument(None, help="Input video file "),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['smudge']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    smudge.smudge(**params)
+
+######################
+# soapblind
+######################
+@app.command('soapblind', help='Apply soapblind effect to video file.')
+def soapblind_vb(
+    input_file: str = typer.Argument(None, help="Input video file "),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['soapblind']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    soapblind.soapblind(**params)
+
+######################
+# splitting
+######################
+@app.command('splitting', help='Apply splitting effect to video file.')
+def splitting_vb(
+    input_file: str = typer.Argument(None, help="Input video file"), 
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['splitting']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    splitting.splitting(**params)
+
+######################
 # stack_2x
 ######################
 @app.command('stack_2x', help='Stack 2 videos on top of each other keeping the original orientation.')
@@ -666,6 +788,22 @@ def stutter_pro_vb(
     stutter_pro.stutter_pro(**params)
 
 ######################
+# t1000
+######################
+@app.command('t1000', help='Applies T1000 filter')
+def t1000_vb(
+    input_file: str = typer.Argument(None, help='Video file you would to filter'),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['t1000']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    t1000.t1000(**params)
+
+######################
 # transcraibe
 ######################
 @app.command('transcraibe', help='Transcribes the video with ai (vosk) - transcrAIbe')
@@ -680,6 +818,54 @@ def transcraibe_vb(
     defaults = config['transcraibe']
     params = {key: params.get(key) or defaults[key] for key in defaults}
     transcraibe.vosk_stt(**params)
+
+######################
+# twociz
+######################
+@app.command('twociz', help='Applies twociz filter')
+def twociz_vb(
+    input_file: str = typer.Argument(None, help='Video file you would to filter'),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['twociz']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    twociz.twociz(**params)
+
+######################
+# wbflare
+######################
+@app.command('wbflare', help='Applies wbflare filter')
+def wbflare_vb(
+    input_file: str = typer.Argument(None, help='Video file you would to filter'),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['wbflare']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    wbflare.wbflare(**params)
+
+######################
+# xrgb
+######################
+@app.command('xrgb', help='Applies xrgb filter')
+def xrgb_vb(
+    input_file: str = typer.Argument(None, help='Video file you would to filter'),
+    output_file: str = typer.Argument(None, help="Output video file")
+):
+    params = { 
+        "input_file": input_file,
+        "output_file": output_file
+    }
+    defaults = config['xrgb']
+    params = {key: params.get(key) or defaults[key] for key in defaults}
+    xrgb.xrgb(**params)
 
 ######################
 # zapruder

@@ -8,6 +8,10 @@ proj_mgmt:
   default_video_file_ext: '.mp4'
   default_audio_file_ext: '.wav'
 
+bad_animation:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/bad_animation.mp4'
+
 bad_contrast:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/bad_contrast.mp4'
@@ -102,7 +106,7 @@ nostalgic_stutter:
 
 num_edits:
   input_file: 'inputs/input.mp4'
-  output_file: 'outputs/output.mp4'
+  output_file: 'outputs/num_edits.mp4'
   count: "1"
 
 overexposed_stutter:
@@ -126,6 +130,14 @@ rb_blur:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/rb_blur.mp4'
 
+recalled_sensor:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/recalled_sensor.mp4'
+
+repainting:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/repainting.mp4'
+
 resize:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/resize.mp4'
@@ -142,6 +154,10 @@ scrolling_pro:
   horizontal: "-0.0013"
   vertical: "-0.0016"  
 
+septic:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/septic.mp4'
+
 silence_xtraction:
   input_file: '/Users/rr/Downloads/trumpbiden2024.webm'
   output_file: 'outputs/output.mp4'
@@ -153,11 +169,23 @@ slight_smear:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/slight_smear.mp4'
 
+smudge:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/smudge.mp4'
+
+soapblind:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/soapblind.mp4'
+
 speed:
   input_file: 'inputs/input.mp4'
   output_file: 'outputs/speed.mp4'  
   speed_factor: 1.5
 
+splitting:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/splitting.mp4'
+  
 stack_2x:
   input_file1: 'inputs/input.mp4'
   input_file2: 'inputs/input.mp4'
@@ -172,9 +200,29 @@ stutter_pro:
   output_file: 'outputs/stutter_pro.mp4'
   stutter: "233.4"
 
+t1000:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/t1000.mp4'
+
 transcraibe:
   input_file: '/Users/rr/Downloads/trumpbiden2024.webm'
   stt_model: 'vosk-models/vosk-model-en-us-0.42-gigaspeech'
+
+twociz:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/twociz.mp4'
+
+wbflare:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/wbflare.mp4'
+
+wbflare:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/wbflare.mp4'
+
+xrgb:
+  input_file: 'inputs/input.mp4'
+  output_file: 'outputs/xrgb.mp4'
 
 zapruder:
   input_file: 'inputs/input.mp4'

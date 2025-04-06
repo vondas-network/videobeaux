@@ -10,6 +10,7 @@ An overview of each program can be find in this [YouTube playlist](https://www.y
 
 | Program | Description |
 | -------- | ------- | 
+| bad_animation | Apply a bad animation effect | 
 | bad_contrast | Apply a bad constrast effect | 
 | ball_point_pen | Apply a ball point pen style effect | 
 | blur_pix | Extracting the silence out of a video file | 
@@ -30,18 +31,27 @@ An overview of each program can be find in this [YouTube playlist](https://www.y
 | overexposed_stutter | Apply a frame stutter and exposing the video like the file is corrupted | 
 | overlay_img_pro | Overlay an image with location & dimension control | 
 | pickle_juice | Apply filter like the video was dipped in pickle juice | 
+| recalled_sensor | Apply filter like a sensor was broken and to-be recalled |
+| repainting | Apply filter like repainting the same image while smudged with alcohol |
 | resize | Resizing the dimensions of a video file |
 | reverse | Reverse video file | 
 | scrolling_pro | Apply video scrolling effect with definable parameters | 
 | scrolling | Apply static video scrolling effect | 
+| septic | Apply filter like a person in septic shock | 
 | silence_extraction | Extracting the silence out of a video file |  
 | slight_smear | Slightly smearing RGB color space |  
+| smudge | Smudging image slightly |  
+| soapblind | Apply filter like soap blinded eyes |  
 | speed | Change the video and audio speed of a file |  
 | stack_2x | Stack 2 videos on top of each other keeping the original orientation | 
 | steel_wash | Apply steel blue filter to video | 
 | stutter_pro | Apply frame stutter effect with definable parameters | 
+| t1000 | Apply filter from the perspective of liquid T-1000 | 
 | transraibe | AI-based transcription tool | 
+| twociz | Apply filter from the perspective of a zombie on TC-1 hallucinogens | 
+| wbflare | Apply filter with a blown out white-balance flare | 
 | zapruder | Apply zapruder-film like effect | 
+| xrgb | Extreme RGB adjustment | 
 
 ## Dependencies
 FFmpeg is required for the project. Install *ffmpeg* using [Homebrew](https://formulae.brew.sh/formula/ffmpeg)
@@ -127,6 +137,10 @@ Options:
 ```
 
 ## Video Exaxmples
+
+bad_animation
+
+https://github.com/user-attachments/assets/1fa8de04-98ef-49f7-9415-616e07210f0e
 
 bad_contrast
 
@@ -216,6 +230,14 @@ pickle_juice
 
 https://github.com/vondas-network/videobeaux/assets/7625379/387bfff5-fbdd-423d-b482-8ab4d5ce744f
 
+recalled_sensor
+
+OMITTED DUE TO SIZE
+
+repainting
+
+https://github.com/user-attachments/assets/1770144d-4448-4719-8ef3-e44b720ec857
+
 reverse
 
 https://github.com/vondas-network/videobeaux/assets/7625379/74367227-6fee-455f-af36-804a1e6d6cb6
@@ -232,13 +254,29 @@ scrolling_pro-3
 
 https://github.com/vondas-network/videobeaux/assets/7625379/4a4272de-e074-4e37-8c2d-a282f2d8be57
 
+septic
+
+https://github.com/user-attachments/assets/25f65267-60fa-421a-aaf3-02918844a488
+
 slight_smear
 
 https://github.com/vondas-network/videobeaux/assets/7625379/a7bca4c5-46b5-4b51-a827-6b8137d0117d
 
+smudge
+
+https://github.com/user-attachments/assets/9bb80e0b-bf16-49e7-b4e1-6c0c79b59c32
+
+soapblind
+
+https://github.com/user-attachments/assets/28070fe5-52cd-42c9-93b7-a417c83add2d
+
 speed
 
 https://github.com/vondas-network/videobeaux/assets/7625379/c27efdb1-ae81-4d8d-a153-de6294b7fedf
+
+splitting
+
+https://github.com/user-attachments/assets/b6c13707-aaa8-416e-9f80-5ca6a386cd0f
 
 stack_2x
 
@@ -260,7 +298,22 @@ stutter_pro-3
 
 https://github.com/vondas-network/videobeaux/assets/7625379/864835ba-dc9d-4392-aa77-2cc062e2b700
 
+t1000
+
+https://github.com/user-attachments/assets/5de6db36-f8d4-426e-9262-b9dbeb2095ae
+
+twociz
+
+OMITTED DUE TO SIZE
+
+wbflare
+
+https://github.com/user-attachments/assets/e2a5f065-163e-4bb9-8fd3-1edbfbdbab2a
+
 zapruder
 
 https://github.com/user-attachments/assets/cad79483-b21f-43b8-a1cd-91ed8406574a
 
+xrgb
+
+https://github.com/user-attachments/assets/c9644cd5-a584-4f0d-ada3-13046e6938a5

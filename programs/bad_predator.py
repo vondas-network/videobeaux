@@ -12,8 +12,7 @@ def bad_predator(input_file, output_file):
         "-level:v", "4.2",
         "-pix_fmt", "yuv420p",
         "-movflags", "+faststart",
-        "-c:a", "aac",
-        "-b:a", "128",
+        "-c:a", "copy",
         output_file
     ]
     run_ffmpeg_command(command)

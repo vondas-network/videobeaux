@@ -12,11 +12,8 @@ def steel_wash(input_file, output_file):
         "-level:v", "4.2",
         "-pix_fmt", "yuv420p",
         "-movflags", "+faststart",
-        "-c:a", "aac",
-        "-b:a", "128",
+        "-c:a", "copy",
         output_file
     ]
     run_ffmpeg_command(command)
     print(f"Video processed with steel_wash and file is {output_file}")
-
-# hello

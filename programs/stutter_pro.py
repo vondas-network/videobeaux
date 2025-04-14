@@ -8,6 +8,7 @@ def stutter_pro(input_file, output_file, stutter):
         "-filter_complex", f"[0:v]random=frames={stutter}[out_v]", 
         "-map", "[out_v]",
         "-map", "0:a",
+        "-c:a", "copy",
         output_file
     ]
 

@@ -148,11 +148,11 @@ https://github.com/vondas-network/videobeaux/assets/7625379/9ba59b08-79a8-4a09-8
 
 bad_predator
 
-https://github.com/vondas-network/videobeaux/assets/7625379/0968ad50-cc97-4336-938f-01b47d86a7bd
+https://github.com/user-attachments/assets/e9a7c93c-81cb-4dd5-bb86-0ad73a9d67b4
 
 ball_point_pen
 
-https://github.com/user-attachments/assets/10e703a5-5036-4c3e-83f6-be04476ad089
+https://github.com/user-attachments/assets/77e9bbb1-b366-4e3e-bac9-6c3db6a3cccb
 
 blur_pix
 
@@ -164,7 +164,7 @@ https://github.com/vondas-network/videobeaux/assets/7625379/4cdebccc-8519-45c6-a
 
 digital_boss
 
-https://github.com/user-attachments/assets/23958066-f384-4801-9d91-5b2df6081a31
+https://github.com/user-attachments/assets/96d147e6-7d1f-4a45-93a9-bc3bd69c4a79
 
 double_cup
 
@@ -172,7 +172,7 @@ https://github.com/vondas-network/videobeaux/assets/7625379/83d30a18-40d1-42e4-a
 
 fever
 
-https://github.com/vondas-network/videobeaux/assets/7625379/b476426f-0ca6-4667-be40-97df932b9909
+https://github.com/user-attachments/assets/3622d6d4-b44c-4e8d-9e70-3b12a6da40c5
 
 frame_delay_pro1-1
 
@@ -200,7 +200,7 @@ https://github.com/vondas-network/videobeaux/assets/7625379/f717d419-687b-4cc3-a
 
 ghostee
 
-https://github.com/user-attachments/assets/87c8b569-5165-485d-ae09-7a8bbbe74051
+https://github.com/user-attachments/assets/a3a2d152-8f78-4e77-a3c3-bed9110bdac4
 
 lsd_feedback
 
@@ -228,7 +228,7 @@ https://github.com/vondas-network/videobeaux/assets/7625379/3932d910-b898-4ed7-b
 
 pickle_juice
 
-https://github.com/vondas-network/videobeaux/assets/7625379/387bfff5-fbdd-423d-b482-8ab4d5ce744f
+https://github.com/user-attachments/assets/721972e0-b3d9-4a8a-8f10-1c4686f3bd2f
 
 recalled_sensor
 
@@ -260,7 +260,7 @@ https://github.com/user-attachments/assets/25f65267-60fa-421a-aaf3-02918844a488
 
 slight_smear
 
-https://github.com/vondas-network/videobeaux/assets/7625379/a7bca4c5-46b5-4b51-a827-6b8137d0117d
+https://github.com/user-attachments/assets/a3b8fd1a-0d12-448d-8dca-e61c93bc0153
 
 smudge
 
@@ -284,19 +284,11 @@ https://github.com/vondas-network/videobeaux/assets/7625379/6f244aba-e741-46c9-9
 
 steel_wash
 
-https://github.com/vondas-network/videobeaux/assets/7625379/eea99448-9352-48f1-a1ec-b2cac6ad056d
+https://github.com/user-attachments/assets/180f019f-5e00-4e0a-91aa-4582e4ebd39d
 
-stutter_pro-1
+stutter_pro
 
-https://github.com/vondas-network/videobeaux/assets/7625379/03e234fb-d0fe-4d72-a11c-dff1bc59fa83
-
-stutter_pro-2
-
-https://github.com/vondas-network/videobeaux/assets/7625379/e6d8c14a-9f20-4365-bb1f-5f473289a855
-
-stutter_pro-3
-
-https://github.com/vondas-network/videobeaux/assets/7625379/864835ba-dc9d-4392-aa77-2cc062e2b700
+https://github.com/user-attachments/assets/9652170f-39a2-4aa6-84ef-6b769f559dcc
 
 t1000
 
@@ -312,7 +304,7 @@ https://github.com/user-attachments/assets/e2a5f065-163e-4bb9-8fd3-1edbfbdbab2a
 
 zapruder
 
-https://github.com/user-attachments/assets/cad79483-b21f-43b8-a1cd-91ed8406574a
+https://github.com/user-attachments/assets/9ff588ab-473d-4b79-a088-13d44a3b754f
 
 xrgb
 

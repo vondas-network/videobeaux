@@ -61,16 +61,11 @@ brew install ffmpeg
 
 ## Requirements
 
-Install the project requirements
-``` bash
-pip install -r requirements.txt
-```
-
 ## Project setup
 
 ### Create Python virtual environment
 In a nutshell, Python virtual environments help decouple and isolate Python installs and associated pip packages. This allows end-users to install and manage their own set of packages that are independent of those provided by the system or used by other projects.
-```bash
+``` bash
  cd videobeaux
  python -m venv env
 ```
@@ -82,58 +77,82 @@ This will activate your virtual environment. Immediately, you will notice that y
 source env/bin/activate
 ```
 
+### Install dependencies
+``` bash
+pip install .
+```
+
 ## Examples
 
-### Using the config file
-Use the *config* file to define the parameters of the function. It acts as a template for the program you'd like to run.
-
-Define parameters in the *config* file 
-``` text
-resize:
-  input_file: "input_file.mp4"
-  output_file: "output_resized_again.mp4"
-  width: 1200
-  height: 200
-```
-  
-Run the program.
+### Get help and find out more about videobeaux
 ``` bash
-videobeaux.py resize
+videobeaux --help
 ```
 
-### Inline Commands  
-Define the parameters of the command using inline parameters.
+### Process a video using a program
+``` bash
+videobeaux --program PROGRAM --input INPUT_FILE --output OUTPUT_FILE
+```
+Translates to something like below ...
+
+``` bash
+videobeaux --program bad_predator --input example.mp4 --output bad-predator
+```
+
+### Find out more information about a specific function
+``` bash
+videobeaux --program soapblind --help
+```
+outputs something like the following ...
+
+```
+       _     _            _
+__   _(_) __| | ___  ___ | |__   ___  __ _ _   ___  __
+\ \ / / |/ _` |/ _ \/ _ \| '_ \ / _ \/ _` | | | \ \/ /
+ \ V /| | (_| |  __/ (_) | |_) |  __/ (_| | |_| |>  <
+  \_/ |_|\__,_|\___|\___/|_.__/ \___|\__,_|\__,_/_/\_\
+
+
+Your friendly multilateral video toolkit built for artists by artists.
+https://vondas.software
+--------------------------------------------------
+Selected program mode: convert
+usage: python3 -m videobeaux.cli --program PROGRAM [global options] [program options]
+
+📺 Your friendly multilateral video toolkit built for artists by artists.
+ It's your best friend!
+https://vondas.software
+
+options:
+  -P PROGRAM, --program PROGRAM
+                        Name of the effect program to run (e.g. convert, glitch)
+  -i INPUT, --input INPUT
+                        Input video file - mp4 only
+  -o OUTPUT, --output OUTPUT
+                        Output file name, no extension. Output will be saved as mp4.
+  -F, --force           Force overwrite output file
+  -h, --help            Show help message and exit
+
+ 👁️ 👇 Additional help for program mode 👇 👁️
+usage: videobeaux --program convert [-h] --output-format OUTPUT_FORMAT
+
+Converts input video into a stylized animation format. Requires output format like mp4 or mov.
+
+options:
+  -h, --help            show this help message and exit
+  --output-format OUTPUT_FORMAT
+                        Format to convert output into (e.g. mp4, wav, etc). Output argument can just be a filename with no extension.
+```
+
+### Define the parameters of the command using inline parameters.
 
 ``` bash
 python videobeaux.py resize [INPUT_FILE] [OUTPUT_FILE] [WIDTH] [HEIGHT]
 ```
+Translates to something like below ...
 
 ``` bash
 python videobeaux.py resize input_file.mp4 resized.mp4 1200 200
-```
-
-## Help
-Learn more about a program using the *help* command
-
-### Usage
-
-```
-python videobeaux.py resize --help 
-```
-
-### Response
-
-```  bash
-Usage: videobeaux.py resize [INPUT_FILE] [OUTPUT_FILE] [OPTIONS]
-
-  Resize a video to the given width and height.
-
-Options:
-  --input_file  FILE    Input video file
-  --output_file FILE    Output video file
-  --width       INT     Format of the output video
-  --height      INT     Show this message and exit.
-  --help                Show this message and exit.
 ```
 
 ## Video Exaxmples

@@ -38,7 +38,7 @@ pip install .
 videobeaux --help
 ```
 
-Outputs as ...
+... outputs the following ...
 
 ```bash
        _     _            _
@@ -73,13 +73,13 @@ options:
 ``` bash
 videobeaux --program PROGRAM --input INPUT_FILE --output OUTPUT_FILE
 ```
-Translates to something like below ...
+... translates to ...
 
 ``` bash
 videobeaux --program bad_predator --input example.mp4 --output example_bp.mp4
 ```
 
-... and the output
+... outputs the following ...
 
 ``` bash
        _     _            _
@@ -130,7 +130,7 @@ Input duration: 10.01 seconds
 videobeaux --program stutter_pro --help
 ```
 
-outputs something like the following ...
+... outputs the following ...
 
 ``` bash
        _     _            _
@@ -170,11 +170,45 @@ options:
   --stutter STUTTER  Replaces the current video frame with a randomly selected one from the most recent N frames.The larger the value, the larger the variation.
 ```
 
-## Testing commands 
+### Running a program to chain process a video
 
-### 
+```bash
+videobeaux --program chain_builder --input example.mp4 --output chainedoutput.mp4 --chain rb_blur,soapblind,lsd_feedback --force
+```
+
+... outputs the following ...
+
 ``` bash
-python3 -m videobeaux.cli --program PROGRAM [global options] [program options]
+       _     _            _
+__   _(_) __| | ___  ___ | |__   ___  __ _ _   ___  __
+\ \ / / |/ _` |/ _ \/ _ \| '_ \ / _ \/ _` | | | \ \/ /
+ \ V /| | (_| |  __/ (_) | |_) |  __/ (_| | |_| |>  <
+  \_/ |_|\__,_|\___|\___/|_.__/ \___|\__,_|\__,_/_/\_\
+
+
+Your friendly multilateral video toolkit built for artists by artists.
+https://vondas.software
+--------------------------------------------------
+Selected program mode: chain_builder
+🔁 Running step 1/3: rb_blur
+Input duration: 10.01 seconds
+🔨 Processing example.mp4: 100%|██████████████████████████████████████████████████████ | 10.01/10.01s [00:00<00:00]
+
+📺 Process Complete: /var/folders/jv/lp20pdtn4jsgjpxw710m0vkm0000gn/T/videobeaux_chain_z7ixo5cs/step_0_rb_blur.mp4
+
+🔁 Running step 2/3: soapblind
+Input duration: 10.03 seconds
+🔨 Processing step_0_rb_blur.mp4: 100%|███████████████████████████████████████████████ | 10.03/10.03s [00:46<00:00]
+
+📺 Process Complete: /var/folders/jv/lp20pdtn4jsgjpxw710m0vkm0000gn/T/videobeaux_chain_z7ixo5cs/step_1_soapblind.mp4
+
+🔁 Running step 3/3: lsd_feedback
+Input duration: 10.03 seconds
+🔨 Processing step_1_soapblind.mp4: 100%|█████████████████████████████████████████████ | 10.03/10.03s [00:03<00:00]
+
+📺 Process Complete: /var/folders/jv/lp20pdtn4jsgjpxw710m0vkm0000gn/T/videobeaux_chain_z7ixo5cs/step_2_lsd_feedback.mp4
+
+✅ Final output written to chainedoutput.mp4
 ```
 
 ## Available Programs

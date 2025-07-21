@@ -35,7 +35,7 @@ def run(args):
             step_args["input"] = str(current_input)
             step_args["output"] = str(intermediate_output)
             step_args = argparse.Namespace(**step_args)
-            print(step_args)
+            # print(step_args)
             print(f"🔁 Running step {i + 1}/{len(chain)}: {prog_name}")
             try:
                 module.run(step_args)

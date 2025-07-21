@@ -1,9 +1,10 @@
 from videobeaux.utils.ffmpeg_operations import run_ffmpeg_with_progress
 
 def register_arguments(parser):
-    parser.description = "Converts input video into a stylized animation format. Requires output format like mp4 or mov."
-
-    print("No custom arguments for this program mode.")
+    parser.description = (
+            "Converts input video into a stylized animation format. Requires output format like mp4 or mov."
+    )
+    print("✅ This program mode does not require additional arguments")
 
 def run(args):
     command = [

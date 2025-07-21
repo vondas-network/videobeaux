@@ -4,6 +4,7 @@ outputs/
 *.mp4
 .DS_Store
 Examples/
+env/
 
 
 # Byte-compiled / optimized / DLL files

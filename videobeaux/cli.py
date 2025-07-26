@@ -51,21 +51,17 @@ def main():
 
     # gloabl --help
     def print_columns(items, padding=2):
-        items = sorted(items) 
+        items = sorted(items)
         terminal_width = shutil.get_terminal_size().columns
-        max_len = max(len(item) for item in items) + padding
+        max_len = max(map(len, items)) + padding
         cols = max(1, terminal_width // max_len)
         rows = math.ceil(len(items) / cols)
-        grid = []
         for row in range(rows):
-            line = []
-            for col in range(cols):
-                idx = col * rows + row
-                if idx < len(items):
-                    line.append(items[idx].ljust(max_len))
-            grid.append("".join(line))
-        
-        for line in grid:
+            line = ''.join(
+                items[col * rows + row].ljust(max_len)
+                for col in range(cols)
+                if col * rows + row < len(items)
+            )
             print(line)
 
     parser.print_help()

@@ -19,8 +19,6 @@ def run(args):
         "-level:v", "4.2",
         "-pix_fmt", "yuv420p",
         "-movflags", "+faststart",
-        "-c:a", "aac",
-        "-b:a", "128",
         args.output
     ]
     run_ffmpeg_with_progress((command[:1] + ["-y"] + command[1:]) if args.force else command, args.input, args.output)

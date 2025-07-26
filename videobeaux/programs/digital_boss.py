@@ -20,8 +20,6 @@ def run(args):
         "-level:v", "4.2",
         "-pix_fmt", "yuv420p",
         "-movflags", "+faststart",
-        "-c:a", "aac",
-        "-b:a", "128",
         args.output
     ]
     

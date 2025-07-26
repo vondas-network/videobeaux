@@ -1,7 +1,7 @@
 import os
 import sys
 import shutil
-import textwrap
+import math
 import argparse
 import importlib
 from pathlib import Path
@@ -51,29 +51,36 @@ def main():
 
     # gloabl --help
     def print_columns(items, padding=2):
+        items = sorted(items) 
         terminal_width = shutil.get_terminal_size().columns
         max_len = max(len(item) for item in items) + padding
         cols = max(1, terminal_width // max_len)
+        rows = math.ceil(len(items) / cols)
+        grid = []
+        for row in range(rows):
+            line = []
+            for col in range(cols):
+                idx = col * rows + row
+                if idx < len(items):
+                    line.append(items[idx].ljust(max_len))
+            grid.append("".join(line))
+        
+        for line in grid:
+            print(line)
 
-        for i in range(0, len(items), cols):
-            row = items[i:i+cols]
-            print("".join(item.ljust(max_len) for item in row))
     parser.print_help()
     print()
-
     if global_args.help and not global_args.program:
         program_dir = os.path.join(os.path.dirname(__file__), "programs")  
 
-        available_programs = [
+        available_programs = sorted([
             f[:-3] for f in os.listdir(program_dir)
             if f.endswith(".py") and not f.startswith("_")
-        ]
+        ])
 
         print("Available Program Modes: \n")
         print_columns(available_programs)
         print()
-
-        
         sys.exit(0)
 
     # program load

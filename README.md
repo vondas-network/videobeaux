@@ -64,24 +64,19 @@ options:
 
 Available Program Modes:
 
-xrgb                 frame_delay_pro2     smudge
-bad_contrast         steel_wash           rb_blur
-slight_smear         repainting           light_snow
-splitting            ball_point_pen       fever
-looper_pro           chain_builder_pro    overlay_img_pro
-reverse              speed                overexposed_stutter
-soapblind            convert              extract_frames
-zapruder             scrolling_pro        silence_xtraction
-digital_boss         double_cup           bad_predator
-nostalgic_stutter    bad_animation        num_edits
-chain_builder        blur_pix             resize
-septic               mirror_delay         twociz
-wbflare              lsd_feedback         transcraibe
-t1000                stutter_pro          extract_sound
-broken_scroll        ghostee              download_yt
-stack_2x             frame_delay_pro1     pickle_juice
-recalled_sensor
-
+bad_animation        extract_sound        pickle_juice         splitting
+bad_contrast         fever                rb_blur              stack_2x
+bad_predator         frame_delay_pro1     recalled_sensor      steel_wash
+ball_point_pen       frame_delay_pro2     repainting           stutter_pro
+blur_pix             ghostee              resize               t1000
+broken_scroll        light_snow           reverse              transcraibe
+chain_builder        looper_pro           scrolling_pro        twociz
+chain_builder_pro    lsd_feedback         septic               wbflare
+convert              mirror_delay         silence_xtraction    xrgb
+digital_boss         nostalgic_stutter    slight_smear         zapruder
+double_cup           num_edits            smudge
+download_yt          overexposed_stutter  soapblind
+extract_frames       overlay_img_pro      speed
   ```
 
 ### Running a program that does not have additional arguments

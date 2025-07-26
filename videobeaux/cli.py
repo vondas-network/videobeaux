@@ -1,6 +1,9 @@
+import os
+import sys
+import shutil
+import textwrap
 import argparse
 import importlib
-import sys
 from pathlib import Path
 from pyfiglet import Figlet
 
@@ -9,16 +12,20 @@ from videobeaux.utils.vb_argparser import VB_Program_ArgParser
 def main():
     a = Figlet(font='ogre')
     print(a.renderText("videobeaux"))
-    print("Your friendly multilateral video toolkit built for artists by artists. \nhttps://vondas.software")
-    print('-' * 50)
+    print("📺 The friendly multilateral video toolkit built for artists by artists. ")
+    print("🫂  It's your best friend!")
+    print()
+    print("🌐 https://vondas.network")
+
+    #print('-' * 50)
+    print()
 
     # global parser
     parser = argparse.ArgumentParser(
-        description="📺 Your friendly multilateral video toolkit built for artists by artists. \n It's your best friend! \nhttps://vondas.software",
-        usage="python3 -m videobeaux.cli --program PROGRAM [global options] [program options]",
-        add_help=False,
+        #description="",
+        usage="videobeaux --program PROGRAM --input INPUT_FILE --output OUTPUT_FILE [program options]",
+        add_help=False, # handling help manually - see below
         formatter_class=argparse.RawTextHelpFormatter
-      # Let us handle --help manually
     )
     parser.add_argument("-P", "--program", help="Name of the effect program to run (e.g. convert, glitch)")
     parser.add_argument("-i", "--input", help="Input video file - mp4 only")
@@ -30,6 +37,7 @@ def main():
     global_args, remaining = parser.parse_known_args()
 
     # Validate and sanitize output filename
+    # TODO - revist MP4 only
     if global_args.output:
         output_path = Path(global_args.output)
         suffix = output_path.suffix.lower()
@@ -42,8 +50,30 @@ def main():
 
 
     # gloabl --help
+    def print_columns(items, padding=2):
+        terminal_width = shutil.get_terminal_size().columns
+        max_len = max(len(item) for item in items) + padding
+        cols = max(1, terminal_width // max_len)
+
+        for i in range(0, len(items), cols):
+            row = items[i:i+cols]
+            print("".join(item.ljust(max_len) for item in row))
+    parser.print_help()
+    print()
+
     if global_args.help and not global_args.program:
-        parser.print_help()
+        program_dir = os.path.join(os.path.dirname(__file__), "programs")  
+
+        available_programs = [
+            f[:-3] for f in os.listdir(program_dir)
+            if f.endswith(".py") and not f.startswith("_")
+        ]
+
+        print("Available Program Modes: \n")
+        print_columns(available_programs)
+        print()
+
+        
         sys.exit(0)
 
     # program load

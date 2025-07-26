@@ -47,24 +47,41 @@ __   _(_) __| | ___  ___ | |__   ___  __ _ _   ___  __
   \_/ |_|\__,_|\___|\___/|_.__/ \___|\__,_|\__,_/_/\_\
 
 
-Your friendly multilateral video toolkit built for artists by artists.
-https://vondas.software
---------------------------------------------------
-usage: python3 -m videobeaux.cli --program PROGRAM [global options] [program options]
+📺 The friendly multilateral video toolkit built for artists by artists.
+🫂  It's your best friend!
 
-📺 Your friendly multilateral video toolkit built for artists by artists.
- It's your best friend!
-https://vondas.software
+🌐 https://vondas.network
+
+usage: videobeaux --program PROGRAM --input INPUT_FILE --output OUTPUT_FILE [program options]
 
 options:
-  -P PROGRAM, --program PROGRAM
+  -P, --program PROGRAM
                         Name of the effect program to run (e.g. convert, glitch)
-  -i INPUT, --input INPUT
-                        Input video file - mp4 only
-  -o OUTPUT, --output OUTPUT
-                        Output file name, no extension. Output will be saved as mp4.
+  -i, --input INPUT     Input video file - mp4 only
+  -o, --output OUTPUT   Output file name, no extension. Output will be saved as mp4.
   -F, --force           Force overwrite output file
   -h, --help            Show help message and exit
+
+Available Program Modes:
+
+xrgb                 frame_delay_pro2     smudge
+bad_contrast         steel_wash           rb_blur
+slight_smear         repainting           light_snow
+splitting            ball_point_pen       fever
+looper_pro           chain_builder_pro    overlay_img_pro
+reverse              speed                overexposed_stutter
+soapblind            convert              extract_frames
+zapruder             scrolling_pro        silence_xtraction
+digital_boss         double_cup           bad_predator
+nostalgic_stutter    bad_animation        num_edits
+chain_builder        blur_pix             resize
+septic               mirror_delay         twociz
+wbflare              lsd_feedback         transcraibe
+t1000                stutter_pro          extract_sound
+broken_scroll        ghostee              download_yt
+stack_2x             frame_delay_pro1     pickle_juice
+recalled_sensor
+
   ```
 
 ### Running a program that does not have additional arguments

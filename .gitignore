@@ -1,7 +1,6 @@
 # LOCAL
 inputs/
 outputs/
-*.mp4
 .DS_Store
 Examples/
 env/

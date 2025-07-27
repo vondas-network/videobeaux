@@ -5,19 +5,16 @@
 <p align="center"><em>The friendly multilateral video toolkit built for artists by artists. It's your best friend.</em></p> 
 
 ## Project dependencies
-FFmpeg is required for the project. Install *ffmpeg* using [Homebrew](https://formulae.brew.sh/formula/ffmpeg)
-```bash
-brew install ffmpeg
-```
+### macOS/Linux
 
-## Setup
-
-### Create Python virtual environment
-In a nutshell, Python virtual environments help decouple and isolate Python installs and associated pip packages. This allows end-users to install and manage their own set of packages that are independent of those provided by the system or used by other projects.
+In the shell prompt, go to the place where you want the project to live. Paste that in a macOS Terminal or Linux shell prompt & run it.
 ``` bash
- cd videobeaux
- python -m venv env
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/vondas-network/videobeaux/refs/heads/main/install.sh)"
 ```
+
+### Windows
+
+## Usage
 
 ### Activate virtual environment
 This will activate your virtual environment. Immediately, you will notice that your terminal path includes env, signifying an activated virtual environment.
@@ -25,13 +22,7 @@ This will activate your virtual environment. Immediately, you will notice that y
 source env/bin/activate
 ```
 
-### Install dependencies within the virtual environment
-The required modules needed to run a program
-``` bash
-pip install .
-```
-
-## Examples
+### Check the installation
 
 ### Get help and find out more about videobeaux
 ``` bash
@@ -78,6 +69,10 @@ double_cup           num_edits            smudge
 download_yt          overexposed_stutter  soapblind
 extract_frames       overlay_img_pro      speed
   ```
+
+Good to go!
+
+## Examples
 
 ### Running a program that does not have additional arguments
 

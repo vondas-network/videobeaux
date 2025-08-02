@@ -1,0 +1,7 @@
+videobeaux --program twociz_pro -i example.mp4 -o twocizpro --factor 31 --blend .182 --similarity .92 --radius 20 --force
+videobeaux --program recalled_sensor_pro -i example.mp4 -o recalled_sensor_pro --factor 31 --radius 20 --force
+videobeaux --program wbflare_pro -i example.mp4 -o wbflarepro --sigma 500.2 --force
+videobeaux --program rb_blur_pro -i example.mp4 -o rb_blur_pro --strength 60 --radius 20 --force
+videobeaux --program lsd_feedback_pro -i example.mp4 -o lsd_feedback_pro --frames 43 --force
+videobeaux --program splitting_pro -i example.mp4 -o splitting_pro --width 20 --position horizontal --force
+videobeaux --program splitting_pro -i example.mp4 -o splitting_pro --width 20 --position vertical --force

@@ -1,0 +1,80 @@
+# simple wipe
+ffmpeg -i input1.mp4 -i input2.mp4 -filter_complex \
+  "[0][1]xfade=transition=wipeleft:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 simple_wipe.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+"[0]perspective=x0=0:y0=0:x1=iw:y1=0:x2=iw:y2=ih:x3=0:y3=ih[out0]; \
+   [1][out0]overlay=0:0" \
+  -c:v libx264 perspective_warp_overlay.mp4
+
+[Parsed_perspective_0 @ 0x6000018502c0] [Eval @ 0x16e3b4cb0] Undefined constant or missing '(' in 'iw'
+[Parsed_perspective_0 @ 0x6000018502c0] Failed to configure input pad on Parsed_perspective_0
+[fc#0 @ 0x600001e6c000] Error reinitializing filters!
+[fc#0 @ 0x600001e6c000] Task finished with error code: -22 (Invalid argument)
+[fc#0 @ 0x600001e6c000] Terminating thread with return code -22 (Invalid argument)
+[vost#0:0/libx264 @ 0x136606090] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0x136606090] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0x136606090] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0x600001a683c0] Nothing was written into output file, because at least one of its streams received no packets.
+
+## chroma_key_compositing
+## REVIEW
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[1]chromakey=0x00FF00:0.1:0.2[fgkey]; \
+   [0][fgkey]overlay=0:0" \
+  -c:v libx264 chroma_key_compositing.mp4
+
+
+
+
+# dissolve
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=transition=fade:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=wipeleft:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=wiperight:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=wipeup:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=wipedown:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=slideleft:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=slideright:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=circlecrop:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=radial:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+ffmpeg -i example.mp4 -i example_bp.mp4 -filter_complex \
+  "[0][1]xfade=pixelize:duration=1:offset=5,format=yuv420p" \
+  -c:v libx264 dissolve.mp4
+
+## Posterize
+## FIX
+ffmpeg -i example.mp4 -vf "lutrgb=r='bitand(val,128)':g='bitand(val,128)':b='bitand(val,128)'"  -c:v libx264 output.mp4
+ffmpeg -i example.mp4 -vf "lutrgb=r='bitand(val,128)':g='bitand(val,128)':b='bitand(val,128)'"  -c:v libx264 output.mp4
+
+
+
+  

@@ -316,12 +316,8 @@ An overview of each program can be find in this [YouTube playlist](https://www.y
 | ball_point_pen | Apply a ball point pen style effect | - |
 | blur_pix | Extracting the silence out of a video file | - |
 | bad_predator | Apply bad Predator heat vision effect | - |
-| convert | Simple video file convert | - |
 | digital_boss | Apply busted gameboy style digital boss effect | - |
 | double_cup | Apply the effect of purple drank | - |
-| download_yt | Video ripper | - |
-| extract_frames | Extract individuals frames from a video file as PNGs | - |
-| extract_sound | Extract audio from video file | - |
 | frame_delay_pro1 | Apply frame delay effect with parameter input | frame_quantity, frame_weights |
 | frame_delay_pro2 | Apply frame delay effect with parameter input | decay, plane |
 | ghostee | Apply a slight ghost effect | - |
@@ -339,7 +335,6 @@ An overview of each program can be find in this [YouTube playlist](https://www.y
 | scrolling_pro | Apply video scrolling effect with definable parameters | horiz_speed, vert_speed |
 | scrolling | Apply static video scrolling effect | - |
 | septic | Apply filter like a person in septic shock | - |
-| silence_extraction | Extracting the silence out of a video file | min_d, max_d, adjuster |
 | slight_smear | Slightly smearing RGB color space |  - |
 | smudge | Smudging image slightly |  - |
 | soapblind | Apply filter like soap blinded eyes |  - |
@@ -348,11 +343,22 @@ An overview of each program can be find in this [YouTube playlist](https://www.y
 | steel_wash | Apply steel blue filter to video | - |
 | stutter_pro | Apply frame stutter effect with definable parameters | stutter |
 | t1000 | Apply filter from the perspective of liquid T-1000 | - |
-| transraibe | AI-based transcription tool | stt_model |
 | twociz | Apply filter from the perspective of a zombie on TC-1 hallucinogens | - |
 | wbflare | Apply filter with a blown out white-balance flare | - |
 | zapruder | Apply zapruder-film like effect | - |
 | xrgb | Extreme RGB adjustment | - |
+
+### Utilities
+
+| Program | Description | Arguments |
+| -------- | ------- | ------- | 
+| convert | Simple video file convert | - |
+| convert_dims | Video file dimensions converter based on industry standards  | - |
+| download_yt | Video ripper | - |
+| extract_frames | Extract individuals frames from a video file as PNGs | - |
+| extract_sound | Extract audio from video file | - |
+| silence_extraction | Extracting the silence out of a video file | min_d, max_d, adjuster |
+| transraibe | AI-based transcription tool | stt_model |
 
 ## Video Exaxmples
 

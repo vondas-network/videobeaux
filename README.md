@@ -306,8 +306,9 @@ Input duration: 10.03 seconds
 https://github.com/user-attachments/assets/ac321c77-4757-4846-b838-6847472e7e09
 
 ## Available Programs
-
 An overview of each program can be find in this [YouTube playlist](https://www.youtube.com/watch?v=7i-WaDgBkcI&list=PLmyETqg8KgDcwV3-JnGoAiQyjR764sBI_).
+
+### Effects 
 
 | Program | Description | Arguments |
 | -------- | ------- | ------- | 
